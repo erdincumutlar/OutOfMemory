@@ -33,7 +33,7 @@
 		// Retrieve input parameters for each found class
 		for(BadClass badClass : each.getClassList().values()) {
 			if(request.getParameter(each.getName() + "_" + badClass.getName()) != null && request.getParameter(each.getName() + "_" + badClass.getName()).trim().length() > 0) {
-				analyzedHeapMap.put(badClass.getName(), request.getParameter(each.getName() + "_" + badClass.getName()).trim());
+				analyzedHeapMap.put(each.getName() + "_" + badClass.getName(), request.getParameter(each.getName() + "_" + badClass.getName()).trim());
 				analyzedHeap.setAnalyzedHeap(analyzedHeapMap);
 			}
 			else {
@@ -49,8 +49,8 @@
 		}		
 		
 		log.info("Done evaluating " + each.getName() + " " + (hits.contains(each) ? "(match)" : ""));			
-	}	
-		
+	}
+	
 	request.setAttribute("hits", hits);
 	request.setAttribute("signatures", signatures);
 	request.setAttribute("analyzedHeapMap", analyzedHeapMap);

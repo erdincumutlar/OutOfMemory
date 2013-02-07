@@ -35,8 +35,8 @@ public class Defect_02 extends Signature {
 	}
 	
 	public boolean evaluate(AnalyzedHeap analyzedHeap) {		
-		if ((analyzedHeap.getNumber(JASPER) >= classList.get(JASPER).getNumber() || 
-		     analyzedHeap.getNumber(EXPORT) >= classList.get(EXPORT).getNumber())) {			
+		if ((analyzedHeap.getNumber(this.getName() + "_" + JASPER) >= classList.get(JASPER).getNumber() || 
+		     analyzedHeap.getNumber(this.getName() + "_" + EXPORT) >= classList.get(EXPORT).getNumber())) {			
 			return true;
 		}		
 		return false;

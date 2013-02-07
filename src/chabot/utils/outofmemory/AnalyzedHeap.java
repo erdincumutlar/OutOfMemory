@@ -11,7 +11,7 @@ public class AnalyzedHeap {
 		this.analyzedHeap = analyzedHeap;
 	}
 	
-	public Map<String, String> getAnalyzedHeap(Map<String, String> analyzedHeap) {
+	public Map<String, String> getAnalyzedHeap() {
 		return analyzedHeap;
 	}	
 	
