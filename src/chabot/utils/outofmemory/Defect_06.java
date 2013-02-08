@@ -34,7 +34,8 @@ public class Defect_06 extends Signature {
 	}
 	
 	public boolean evaluate(AnalyzedHeap analyzedHeap) {		
-		if ((analyzedHeap.getNumber(TRANSACTION) >= classList.get(TRANSACTION).getNumber()) && (analyzedHeap.getNumber(PATINTERACT) >= classList.get(PATINTERACT).getNumber())) {			
+		if ((analyzedHeap.getNumber(this.getName() + "_" + TRANSACTION) >= classList.get(TRANSACTION).getNumber()) && 
+			(analyzedHeap.getNumber(this.getName() + "_" + PATINTERACT) >= classList.get(PATINTERACT).getNumber())) {			
 			return true;
 		}		
 		return false;
