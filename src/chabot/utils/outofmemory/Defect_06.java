@@ -1,0 +1,42 @@
+package chabot.utils.outofmemory;
+
+import java.util.HashMap;
+import java.util.Map;
+
+/*
+ * DEV-28143
+ * https://jira/browse/DEV-28143
+ */
+
+public class Defect_06 extends Signature {
+
+	final String TRANSACTION = "ChargeTransaction";
+	final String PATINTERACT = "PatientInteraction";	
+		
+	public Defect_06() {		
+		
+		BadClass class_1 = new BadClass();		
+		class_1.setName(TRANSACTION);
+		class_1.setNumber(332);
+		
+		BadClass class_2 = new BadClass();		
+		class_2.setName(PATINTERACT);
+		class_2.setNumber(225);		
+		
+		Map<String, BadClass> classList = new HashMap<String, BadClass>();
+		classList.put(class_1.getName(), class_1);
+		classList.put(class_2.getName(), class_2);		
+				
+		setName("DEV-28143");
+		setDescription("Fill this in later.");
+		setFixVersion("7.x Triage");
+		setClassList(classList);				
+	}
+	
+	public boolean evaluate(AnalyzedHeap analyzedHeap) {		
+		if ((analyzedHeap.getNumber(TRANSACTION) >= classList.get(TRANSACTION).getNumber()) && (analyzedHeap.getNumber(PATINTERACT) >= classList.get(PATINTERACT).getNumber())) {			
+			return true;
+		}		
+		return false;
+	}
+}
