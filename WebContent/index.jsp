@@ -11,7 +11,7 @@
 		         java.util.Comparator"
 		 contentType="text/html; charset=ISO-8859-1"
 		 pageEncoding="ISO-8859-1" %>
-		 
+
 <%! final Logger log = Logger.getLogger(AnalyzedHeap.class); %>
 
 <%  List<Signature> signatures = new ArrayList<Signature>();
@@ -33,7 +33,7 @@
 		// Retrieve input parameters for each found class
 		for(BadClass badClass : each.getClassList().values()) {
 			if(request.getParameter(each.getName() + "_" + badClass.getName()) != null && request.getParameter(each.getName() + "_" + badClass.getName()).trim().length() > 0) {
-				analyzedHeapMap.put(badClass.getName(), request.getParameter(each.getName() + "_" + badClass.getName()).trim());
+				analyzedHeapMap.put(each.getName() + "_" + badClass.getName(), request.getParameter(each.getName() + "_" + badClass.getName()).trim());
 				analyzedHeap.setAnalyzedHeap(analyzedHeapMap);
 			}
 			else {
@@ -49,8 +49,8 @@
 		}		
 		
 		log.info("Done evaluating " + each.getName() + " " + (hits.contains(each) ? "(match)" : ""));			
-	}	
-		
+	}
+	
 	request.setAttribute("hits", hits);
 	request.setAttribute("signatures", signatures);
 	request.setAttribute("analyzedHeapMap", analyzedHeapMap);
@@ -65,8 +65,8 @@ if (request.getMethod().equals("GET")) { %>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 		<link rel="stylesheet" type="text/css" href="styles/home.css" media="screen"/>
-		<script type="text/javascript" src="scripts/utils.js"></script>
 		<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+		<script type="text/javascript" src="scripts/utils.js"></script>
 		<link href="http://fonts.googleapis.com/css?family=Press Start 2P" rel="stylesheet" type="text/css">
 		<title>OOM Analysis</title>
 	</head>

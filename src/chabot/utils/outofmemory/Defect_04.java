@@ -46,7 +46,10 @@ public class Defect_04 extends Signature {
 	}
 	
 	public boolean evaluate(AnalyzedHeap analyzedHeap) {		
-			if(analyzedHeap.getBoolean(MULTI) && analyzedHeap.getBoolean(PATINTERACT) && analyzedHeap.getBoolean(POSTDATA) && analyzedHeap.getBoolean(POSTDATA)) {
+			if(analyzedHeap.getBoolean(this.getName() + "_" + MULTI) && 
+			   analyzedHeap.getBoolean(this.getName() + "_" + PATINTERACT) && 
+			   analyzedHeap.getBoolean(this.getName() + "_" + POSTDATA) && 
+			   analyzedHeap.getBoolean(this.getName() + "_" + POSTDATA)) {
 				return true;				
 			}
 		return false;

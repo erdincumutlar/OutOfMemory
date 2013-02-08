@@ -34,7 +34,7 @@ public class Defect_01 extends Signature {
 	}
 	
 	public boolean evaluate(AnalyzedHeap analyzedHeap) {		
-		if ((analyzedHeap.getNumber(COLUMNDATA) + analyzedHeap.getNumber(COLUMNROW)) >= classList.get(COLUMNDATA).getNumber()) {			
+		if ((analyzedHeap.getNumber(this.getName() + "_" + COLUMNDATA) + analyzedHeap.getNumber(this.getName() + "_" + COLUMNROW)) >= classList.get(COLUMNDATA).getNumber()) {			
 			return true;
 		}		
 		return false;
