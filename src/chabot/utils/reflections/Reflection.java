@@ -2,10 +2,7 @@ package chabot.utils.reflections;
 
 import java.lang.reflect.Constructor;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collection;
-import java.util.Collections;
-import java.util.List;
 
 import org.apache.log4j.Logger;
 import org.reflections.Reflections;

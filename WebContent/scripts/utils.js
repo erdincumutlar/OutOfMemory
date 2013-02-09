@@ -1,5 +1,5 @@
 $(document).ready(function() {
-	$("input.userInput").change(function() {
+	$("input.user").change(function() {
 		var defect = $(this).prop('id').substring(0,$(this).prop('id').indexOf('_'));
 		$('span#' + defect).hide(300);
 	});    
@@ -7,9 +7,9 @@ $(document).ready(function() {
 
 function validate() {
 
-	$('input.userInput').each(function(){
+	$('input.user').each(function(){
 	
-		// Assume user entered valid input
+		// Assume input is valid
 		validForm = true;
 		
 		// Limit to < 10 GB (max: 9999 MB)
