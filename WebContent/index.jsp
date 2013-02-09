@@ -8,7 +8,7 @@
 		         java.util.HashMap"		         
 		 contentType="text/html; charset=ISO-8859-1"
     	 pageEncoding="ISO-8859-1" %>  
-	<%! final Logger log = Logger.getLogger(Signature.class); %>	
+	<%! final Logger log = Logger.getLogger(AnalyzedHeap.class); %>	
 	<%	
 	if (request.getMethod().equals("POST")) {
 
@@ -45,8 +45,9 @@
 		log.info("Done evaluating " + each.getName() + ", " + (hits.contains(each)));			
 	}
 
+	request.setAttribute("analyzedHeap", analyzedHeap);
 	request.setAttribute("hits", hits);
-	request.setAttribute("didRun", true);
+	request.setAttribute("justRan", true);
 	log.info("Finished...");	
 		
 } %>

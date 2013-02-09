@@ -8,10 +8,6 @@ span.title {
 	font-size: 30px;
 }
 
-span.indent {
-	padding-left: 15px;
-}
-
 span.black {
 	color: black;
 }
@@ -22,6 +18,7 @@ span.error {
 	display: inline-block;
 }
 
+
 div.centerText {
 	text-align:center;
 }
@@ -29,13 +26,6 @@ div.centerText {
 div#outerContainer {
 	width: 100%
 }
-
-/*
-div#innerContainer {
-	width: 50%;
-    margin: 0px auto;
-}
-*/
 
 div#titleContainer {	
 	padding-bottom: 5px;
@@ -50,15 +40,6 @@ div#bodyContainer {
 	padding-left:5px;
 }
 
-div#hitsContainer {	
-	padding-left:5px;	
-}
-
-div#hitContainer ul{	
-	margin-top:5px;
-	list-style-type:square;
-	color: red;
-}
 
 div#defectContainer {	
 	padding-left:15px;
@@ -96,4 +77,18 @@ fieldset.thin label {
 fieldset.wide label{
 	display: inline-block;
 	width: 620px;	
+}
+
+fieldset#hits {	
+	border: 1px solid red;
+}
+
+fieldset#hits legend {	
+	color: red;
+}
+
+fieldset#hits ul{	
+	margin-top:5px;
+	list-style-type:square;
+	color: red;
 }

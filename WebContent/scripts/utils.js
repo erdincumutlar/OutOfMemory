@@ -1,7 +1,9 @@
 $(document).ready(function() {
 	$("input.user").change(function() {
 		var defect = $(this).prop('id').substring(0,$(this).prop('id').indexOf('_'));
-		$('span#' + defect).hide(300);
+		if ($('span#' + defect).is(":visible")) {
+			$('span#' + defect).hide(300);		
+		}				
 	});    
 });
 
