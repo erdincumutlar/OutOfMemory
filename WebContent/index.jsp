@@ -25,29 +25,30 @@
 	log.info("Starting...");
 
 	// Cycle through classes that extend Signature (e.g. Defect_[#])
-	for(Signature each : signatures) {
+	for(Signature sig : signatures) {
 		// Retrieve input parameters for each class
-		for(BadClass badClass : each.getClassList().values()) {
-			if(request.getParameter(each.getName() + "_" + badClass.getName()) != null && request.getParameter(each.getName() + "_" + badClass.getName()).trim().length() > 0) {
-				analyzedHeapMap.put(each.getName() + "_" + badClass.getName(), request.getParameter(each.getName() + "_" + badClass.getName()).trim());
+		for(BadClass badClass : sig.getClassList().values()) {
+			String name = sig.getName() + "_" + badClass.getName();
+			String input = request.getParameter(name);
+			if(input != null && input.trim().length() > 0) {
+				analyzedHeapMap.put(name, input.trim());
 			}
 			else {
 				// Assume null fields are 0 MB. Applies only when javascript is disabled in the browser.
-				analyzedHeapMap.put(each.getName() + "_" + badClass.getName(), "0");
+				analyzedHeapMap.put(name, "0");
 			}								
 		}				
 		analyzedHeap.setAnalyzedHeap(analyzedHeapMap);
 		// Evaluate input against defects (e.g. Defect_[#])
-		if(each.evaluate(analyzedHeap))	{
-			hits.add(each);
+		if(sig.evaluate(analyzedHeap))	{
+			hits.add(sig);
 		}		
 
-		log.info("Done evaluating " + each.getName() + ", " + (hits.contains(each)));			
+		log.info("Done evaluating " + sig.getName() + ", " + (hits.contains(sig)));			
 	}
 
 	request.setAttribute("analyzedHeap", analyzedHeap);
 	request.setAttribute("hits", hits);
-	request.setAttribute("justRan", true);
 	log.info("Finished...");	
 		
 } %>
