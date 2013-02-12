@@ -89,6 +89,7 @@ fieldset#hits legend {
 
 fieldset#hits ul{	
 	margin-top:5px;
+	margin-bottom:5px;
 	list-style-type:square;
 	color: red;
 }

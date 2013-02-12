@@ -11,14 +11,18 @@
 		 contentType="text/html; charset=ISO-8859-1"
 		 pageEncoding="ISO-8859-1" %>
 
-<%  AnalyzedHeap analyzedHeap = (AnalyzedHeap) request.getAttribute("analyzedHeap");
+<%  // Get request attributes if a run was just performed
+	AnalyzedHeap analyzedHeap = (AnalyzedHeap) request.getAttribute("analyzedHeap");
 	List<Signature> hits =  (List<Signature>) request.getAttribute("hits");	
 		
-	List<Signature> signatures = new ArrayList<Signature>();	
 	// Find classes that extend Signature (e.g. Defect_[#].java)
+	List<Signature> signatures = new ArrayList<Signature>();		
 	for(Signature each : Reflection.findSubTypesOf("chabot.utils.outofmemory", Signature.class)) {
 		signatures.add(each);							
 	}
+	request.setAttribute("sigs", signatures);
+	System.out.println(request.getAttribute("sigs"));
+	
  %>
 <html>
 <head>
@@ -39,6 +43,7 @@
 				Instructions for determining the values below can be found on Support's <a href="https://confluence/display/support/Out-of-Memory+Analysis">Out-of-Memory Analysis</a> page.
 			</div>				
 			<div id="defectContainer">
+			<div id="hitsContainer">
 			<% 	if(analyzedHeap != null) { %>
 					<fieldset id="hits" class="thin">
 					<legend>Results</legend>	   	
@@ -53,7 +58,8 @@
 					} %>
    					</ul>
    					</fieldset>
-			<%	}  %>	
+			<%	}  %>
+			</div>				
 			<form id="oomform" method="post" action="./index.jsp" onSubmit="return validate()">		
 			<% 	Collections.sort(signatures);			
 				for(Signature sig : signatures) {
