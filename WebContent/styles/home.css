@@ -19,29 +19,25 @@ span.error {
 }
 
 
-div.centerText {
-	text-align:center;
-}
-
-div#outerContainer {
+div#outer {
 	width: 100%
 }
 
-div#titleContainer {	
+div#title {	
 	padding-bottom: 5px;
 	margin-bottom: 5px;		
 	margin-top: 15px;
 	border-bottom: 1px solid;
 }
 
-div#bodyContainer {	
+div#instructions {	
 	margin-top: 15px;
 	margin-bottom: 15px;
 	padding-left:5px;
 }
 
 
-div#defectContainer {	
+div#inner {	
 	padding-left:15px;
 	width: 350px;	
 }
@@ -49,6 +45,10 @@ div#defectContainer {
 div#submit {
 	margin-top: 5px;
 	margin-bottom: 5px;
+}
+
+div.center {
+	text-align:center;
 }
 
 fieldset {
@@ -69,14 +69,30 @@ fieldset legend {
 }
 
 fieldset.thin label {
-	display: inline-block;	
-	text-align: right;
+	display: inline-block;
 	width: 210px;
+	text-align:right;		
 }
 
 fieldset.wide label{
 	display: inline-block;
 	width: 620px;	
+}
+
+fieldset.aux {
+	padding-bottom:2px;
+}
+
+fieldset.aux label {
+	display: inline-block;
+	width: 140px;
+	text-align:left;
+	text-indent:15px;	
+	font-style:italic;	
+}
+
+fieldset.aux input {
+	text-align:left;		
 }
 
 fieldset#hits {	

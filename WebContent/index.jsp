@@ -9,14 +9,12 @@
 	 contentType="text/html; charset=ISO-8859-1"
    	 pageEncoding="ISO-8859-1" %>  
 <%! final Logger log = Logger.getLogger(AnalyzedHeap.class); %>	
-<%	if (request.getMethod().equals("POST")) {
-
+<%	if (request.getMethod().equals("POST") && request.getParameter("oomFormSubmitted") != null) {
 		AnalyzedHeap analyzedHeap = new AnalyzedHeap();	
-		Map<String, String> analyzedHeapMap = new HashMap<String, String>();
-		
+		Map<String, String> analyzedHeapMap = new HashMap<String, String>();		
 		List<Signature> hits = new ArrayList<Signature>();		
-		List<Signature> signatures = new ArrayList<Signature>();		
 		
+		List<Signature> signatures = new ArrayList<Signature>();		
 		for(Signature each : Reflection.findSubTypesOf("chabot.utils.outofmemory", Signature.class)) {
 			signatures.add(each);							
 		}
@@ -31,8 +29,7 @@
 				String input = request.getParameter(name);
 				if(input != null && input.trim().length() > 0) {
 					log.debug("Adding " + name + " with value " + input.trim());
-					analyzedHeapMap.put(name, input.trim());
-					
+					analyzedHeapMap.put(name, input.trim());					
 				}
 				else {
 					// Assume null fields are 0 MB. Should only apply when Javascript has been disabled.
