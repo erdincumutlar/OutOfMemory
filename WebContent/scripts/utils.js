@@ -17,10 +17,6 @@ function validateCase() {
 			validForm = false;
 		}	
 	});	
-	if(validForm) {
-		event.preventDefault();
-		$('input#caseSubmit').hide();
-	}
     return validForm;
 }
 

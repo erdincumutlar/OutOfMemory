@@ -95,14 +95,11 @@ public abstract class Signature implements Comparable<Signature>{
 
 	public int compareTo(Signature sig) {		
 		if (sig.hasQuestion() && !this.hasQuestion()) {
-			System.out.println(sig.getName() + " - " + this.getName());
 			return -1;  // Put below
 		}
 		if (!sig.hasQuestion() && this.hasQuestion()) {
-			System.out.println(sig.getName() + " - " + this.getName());
 			return 1; // Put above
 		}		
-		System.out.println(sig.getName() + " - " + this.getName());
 		return sig.getName().compareTo(this.getName()) * -1;
 	}
 	

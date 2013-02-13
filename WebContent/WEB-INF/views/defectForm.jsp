@@ -9,11 +9,11 @@
 		 pageEncoding="ISO-8859-1" %>
 <%
 String tag = (String) request.getAttribute("tag");
-
-if(tag != null && tag.length() > 0) {	
-	AnalyzedHeap analyzedHeap = (AnalyzedHeap) request.getAttribute("analyzedHeap");
+System.out.println(tag);
+if(tag != null && tag.length() > 0) {
 	long versionNormalized = (Long) request.getAttribute("versionNormalized");
 	List<Signature> signatures = (List<Signature>) request.getAttribute("signatures");	
+	AnalyzedHeap analyzedHeap = (AnalyzedHeap) request.getAttribute("analyzedHeap");
 %>
 <form id="oomform" method="post" action="index.jsp" onSubmit="return validate()">		
 	<% 	for(Signature sig : signatures) {
@@ -41,7 +41,7 @@ if(tag != null && tag.length() > 0) {
 						else { %>								
 							<label for="<%=name%>"><%=badClass.getName()%></label>&nbsp;
 							<input type="text" class="user" id="<%=name%>" name="<%=name%>" maxlength="4" size="5"
-							value="<%=analyzedHeap != null ? WebUtil.out(analyzedHeap.getNumber(name)) : ""%>"/> MB <br />			  				  
+							value="<%=analyzedHeap != null ? WebUtil.out(analyzedHeap.getNumber(name)) : ""%>"/> <br />			  				  
 							<%
 						}
 					 } %>
@@ -56,6 +56,7 @@ if(tag != null && tag.length() > 0) {
 		</div>
 	</div>
 	<input type="hidden" name="defectForm" value="defectForm" />
+	<input type="hidden" name="tag" value="<%=tag%>" />
 	</form> <%
 	}
 	%>

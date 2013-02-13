@@ -9,9 +9,7 @@
 
 <% AnalyzedHeap analyzedHeap =  (AnalyzedHeap) request.getAttribute("analyzedHeap");
 
-if (analyzedHeap != null) {	
-
-	List<Signature> signatures = (List<Signature>) request.getAttribute("signatures"); 
+if (analyzedHeap != null) {
 	List<Signature> hits =  (List<Signature>) request.getAttribute("hits");  
 %>	
 	<fieldset id="hits" class="thin">
