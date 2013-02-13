@@ -37,7 +37,7 @@ div#instructions {
 }
 
 
-div#inner {	
+div#leftPane {	
 	padding-left:15px;
 	width: 350px;	
 }
@@ -79,11 +79,11 @@ fieldset.wide label{
 	width: 620px;	
 }
 
-fieldset.aux {
+fieldset.case {
 	padding-bottom:2px;
 }
 
-fieldset.aux label {
+fieldset.case label {
 	display: inline-block;
 	width: 140px;
 	text-align:left;
@@ -91,7 +91,7 @@ fieldset.aux label {
 	font-style:italic;	
 }
 
-fieldset.aux input {
+fieldset.case input {
 	text-align:left;		
 }
 
