@@ -10,21 +10,14 @@
 <%
 String tag = (String) request.getAttribute("tag");
 
-if(tag != null && tag.length() > 0) {
-	
+if(tag != null && tag.length() > 0) {	
 	AnalyzedHeap analyzedHeap = (AnalyzedHeap) request.getAttribute("analyzedHeap");
 	long versionNormalized = (Long) request.getAttribute("versionNormalized");
-
-	List<Signature> signatures = new ArrayList<Signature>();		
-	for(Signature each : Reflection.findSubTypesOf("chabot.utils.outofmemory", Signature.class)) {
-		signatures.add(each);							
-	}
-	
-	Collections.sort(signatures);		
+	List<Signature> signatures = (List<Signature>) request.getAttribute("signatures");	
 %>
 <form id="oomform" method="post" action="index.jsp" onSubmit="return validate()">		
 	<% 	for(Signature sig : signatures) {
-			// Based on the version, display the relevant defects
+			// Display relevant defects based on version
 			if (versionNormalized < sig.getFixVersionNormalized()) {
 			 	// Set the width of the fieldset based on whether the defect has question text
 				if(sig.hasQuestion()) {								
@@ -34,7 +27,7 @@ if(tag != null && tag.length() > 0) {
 					%><fieldset class="thin"><%	
 				} %> 							
 				<legend><%=sig.getName()%></legend>
-				<%	for(BadClass badClass : sig.getClassList().values()) {
+<%				for(BadClass badClass : sig.getClassList().values()) {
 						 String name = sig.getName() + "_" + badClass.getName();
 						// Display radio buttons for questions
 						if(badClass.isQuestion()) { %>								

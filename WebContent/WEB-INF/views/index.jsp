@@ -37,6 +37,9 @@
 					<jsp:include page="caseForm.jsp" />	
 				</div>
 				<div>								
+					<jsp:include page="hits.jsp" />	
+				</div>
+				<div>								
 					<jsp:include page="defectForm.jsp" />	
 				</div>
 			</div>
