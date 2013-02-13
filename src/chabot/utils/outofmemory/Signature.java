@@ -38,6 +38,15 @@ public abstract class Signature implements Comparable<Signature>{
 		return fixVersion;
 	}
 	
+	public long getFixVersionNormalized() {
+		try {
+			return Long.parseLong(fixVersion.replace(".", ""));
+		}
+		catch (NumberFormatException nfe) {
+			return 1000000;
+		}
+	}
+	
 	public void setClassList(Map<String, BadClass>  classList) {
 		this.classList = classList;
 	}
