@@ -23,11 +23,11 @@ public class Defect_07 extends Signature {
 	
 	BadClass class_2 = new BadClass();
 	class_2.setName(CACHEPOPULATOR);
-	class_2.setQuestion("Does " + CACHEPOPULATOR + " exist within the thread details of pool-NN-thread-Y (i.e. pool-27-thread-2)?");
-	
+	class_2.setQuestion("Does " + CACHEPOPULATOR + " exist within the thread details of pool-[#]-thread-[#]?");
+		
 	Map<String, BadClass> classList = new HashMap<String, BadClass>();
 	classList.put(class_1.getName(), class_1);
-	classList.put(class_2.getName(), class_2);	
+	classList.put(class_2.getName(), class_2);
 	
 	setName("DEV-36990");
 	setDescription("Fill this in later.");

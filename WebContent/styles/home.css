@@ -18,6 +18,9 @@ span.error {
 	display: inline-block;
 }
 
+span#tag {
+	font-style:italic;
+}
 
 div#outer {
 	width: 100%
@@ -62,19 +65,20 @@ fieldset label, fieldset input {
 
 fieldset input {
 	text-align: right;
+	display: inline-block;
 }
 
 fieldset legend {
 	font-weight: bold;
 }
 
-fieldset.thin label {
+fieldset label.class {
 	display: inline-block;
 	width: 210px;
 	text-align:right;		
 }
 
-fieldset.wide label{
+fieldset.wide label.question{
 	display: inline-block;
 	width: 620px;	
 }
@@ -97,6 +101,7 @@ fieldset.case input {
 
 fieldset#hits {	
 	border: 1px solid red;
+	margin-bottom: 10px;
 }
 
 fieldset#hits legend {	

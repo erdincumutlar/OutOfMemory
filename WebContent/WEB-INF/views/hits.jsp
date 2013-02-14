@@ -11,6 +11,8 @@
 
 if (analyzedHeap != null) {
 	List<Signature> hits =  (List<Signature>) request.getAttribute("hits");  
+	String tag =  (String) request.getAttribute("tag");
+	String version =  (String) request.getAttribute("version");
 %>	
 	<fieldset id="hits" class="thin">
 		<legend>Results</legend>
@@ -28,6 +30,9 @@ else {
 %>
 </ul>
 </fieldset>
+<div class="center">
+<span id="tag"><%=tag%> (<%=version%>)</span>
+</div>
 <%
 }
 %>

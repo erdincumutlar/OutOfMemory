@@ -12,13 +12,23 @@
    	 pageEncoding="ISO-8859-1" %>  
 
 <%! final Logger log = Logger.getLogger(AnalyzedHeap.class); %>	
-<%	if (request.getMethod().equals("POST")) {
-	
-		long versionNormalized = 0;
+<%	if (request.getMethod().equals("POST")) {	
 		
 		// Determine which form was submitted using hidden fields
 		String caseForm = request.getParameter("caseForm");
 		String defectForm = request.getParameter("defectForm");
+		
+		// Get the Mobilizer tag
+		String tag = request.getParameter("tag");
+		String version = tag;
+		long versionNormalized = 0;
+		RE versionPattern = new RE("([0-9]+)_([0-9]+)_([0-9]+)");		
+		
+		// Parse "MOBILIZER_7_6_2_0_20130118_1157-RELEASE" to "7.6.2" and "762"	
+		if(version != null && version.length() > 0 && versionPattern.match(version)) {
+			version = versionPattern.getParen(1) + "." + versionPattern.getParen(2) + "." + versionPattern.getParen(3);
+			versionNormalized = Long.parseLong(version.replace(".", ""));		
+		}
 				
 		// Find all classes that extend Signature (e.g. Defect_[#].java)
 		List<Signature> signatures = new ArrayList<Signature>();		
@@ -32,35 +42,22 @@
 		log.debug("Found: " + signatures.size() + " signatures");
 		
 		// If the "Case Information" form was submitted...
-		if(caseForm != null && caseForm.length() > 0) {
-			RE versionPattern = new RE("([0-9]+)_([0-9]+)_([0-9]+)");
-			String tag = request.getParameter("tag");
-			String version = tag;			
-			
-			// Parse "MOBILIZER_7_6_2_0_20130118_1157-RELEASE" to "7.6.2" and "762"	
-			if(version != null && version.length() > 0 && versionPattern.match(version)) {
-				version = versionPattern.getParen(1) + "." + versionPattern.getParen(2) + "." + versionPattern.getParen(3);
-				versionNormalized = Long.parseLong(version.replace(".", ""));		
-			}
-			
+		if(caseForm != null && caseForm.length() > 0) {			
 			String owner = request.getParameter("owner");
 			String caseNumber = request.getParameter("caseNumber");
-						
-			request.setAttribute("owner", owner);
-			request.setAttribute("caseNumber", caseNumber);
+			
 			request.setAttribute("tag", tag);
+			request.setAttribute("owner", owner);
 			request.setAttribute("version", version);
-			request.setAttribute("versionNormalized", versionNormalized);
+			request.setAttribute("caseNumber", caseNumber);
 			request.setAttribute("signatures", signatures);
+			request.setAttribute("versionNormalized", versionNormalized);
 			
 			log.info(owner + ", " + caseNumber + ", " + tag + " (" + version + ", " + versionNormalized + ")");
-			
 		}	
 		
 		// If the Defect fom was submitted...
-		if(defectForm != null && defectForm.length() > 0) {
-			
-			String tag = request.getParameter("tag");
+		if(defectForm != null && defectForm.length() > 0) {	
 			
 			AnalyzedHeap analyzedHeap = new AnalyzedHeap();	
 			Map<String, String> analyzedHeapMap = new HashMap<String, String>();	
@@ -75,7 +72,6 @@
 				String name = sig.getName() + "_" + badClass.getName();
 				String input = request.getParameter(name);
 					if(input != null && input.trim().length() > 0) {
-						log.debug("Adding " + name + " with value " + input.trim());
 						analyzedHeapMap.put(name, input.trim());	
 					}
 					else {
@@ -94,6 +90,7 @@
 			
 			request.setAttribute("tag", tag);
 			request.setAttribute("hits", hits);			
+			request.setAttribute("version", version);
 			request.setAttribute("signatures", signatures);
 			request.setAttribute("analyzedHeap", analyzedHeap);
 			request.setAttribute("versionNormalized", versionNormalized);
