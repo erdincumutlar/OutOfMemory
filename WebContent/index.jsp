@@ -39,7 +39,7 @@
 		// Sort the signatures in ascending order, placing questions at the end
 		Collections.sort(signatures);
 		
-		log.debug("Found: " + signatures.size() + " signatures");
+		log.debug("Found " + signatures.size() + " signatures");
 		
 		// If the "Case Information" form was submitted...
 		if(caseForm != null && caseForm.length() > 0) {			

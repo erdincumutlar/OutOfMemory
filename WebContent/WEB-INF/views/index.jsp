@@ -34,13 +34,13 @@
 			</div>
 			<div id="leftPane">
 				<div>								
-					<jsp:include page="caseForm.jsp" />	
+					<jsp:include page="case.jsp" />	
 				</div>
 				<div>								
 					<jsp:include page="hits.jsp" />	
 				</div>
 				<div>								
-					<jsp:include page="defectForm.jsp" />	
+					<jsp:include page="defects.jsp" />	
 				</div>
 			</div>
 		</div>

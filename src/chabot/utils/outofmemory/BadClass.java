@@ -1,6 +1,6 @@
 package chabot.utils.outofmemory;
 
-public class BadClass {
+public class BadClass implements Comparable<BadClass>{
 
 	private String name;
 	private String question;
@@ -36,5 +36,42 @@ public class BadClass {
 	
 	public boolean isQuestion() {
 		return question != null;
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((name == null) ? 0 : name.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		BadClass other = (BadClass) obj;
+		if (name == null) {
+			if (other.name != null)
+				return false;
+		} else if (!name.equals(other.name))
+			return false;
+		return true;
+	}
+
+	@Override
+	public int compareTo(BadClass bc) {
+		if (bc.isQuestion() && !this.isQuestion()) {
+			return -1;  // Put below
+		}
+		if (!bc.isQuestion() && this.isQuestion()) {
+			return 1; // Put above
+		}		
+		return bc.getName().compareTo(this.getName()) * -1;
 	}		
+	
 }
