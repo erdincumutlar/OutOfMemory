@@ -1,3 +1,8 @@
+a:link {text-decoration:none;}   
+a:visited {color:#00FF00;} 
+a:hover {text-decoration:underline;}  
+a:active {color:#0000FF;} 
+
 body {
 	font-family: Calibri, Tahoma, Times New Roman, Sans Serif;
 	font-size: 15px;
@@ -56,6 +61,9 @@ div.center {
 
 fieldset {
 	margin-top: 5px;
+	margin-bottom: 5px;
+	background-color: #E0E0E0;
+	border: 1px solid #C0C0C0;
 }
 
 fieldset label, fieldset input {

@@ -14,6 +14,7 @@ if (analyzedHeap != null) {
 	String tag =  (String) request.getAttribute("tag");
 	String version =  (String) request.getAttribute("version");
 %>	
+	<div>
 	<fieldset id="hits" class="thin">
 		<legend>Results</legend>
 		<ul>
@@ -33,6 +34,7 @@ else {
 <div class="center">
 <span id="tag"><%=tag%> (<%=version%>)</span>
 </div>
+<div>
 <%
 }
 %>

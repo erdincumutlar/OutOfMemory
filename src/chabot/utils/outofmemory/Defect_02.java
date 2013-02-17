@@ -18,10 +18,12 @@ public class Defect_02 extends Signature {
 		BadClass class_1 = new BadClass();		
 		class_1.setName(JASPER);
 		class_1.setNumber(400);
+		class_1.setContext("MB");
 		
 		BadClass class_2 = new BadClass();		
 		class_2.setName(EXPORT);
 		class_2.setNumber(400);
+		class_2.setContext("MB");
 		
 		Map<String, BadClass> classList = new HashMap<String, BadClass>();
 		classList.put(class_1.getName(), class_1);
@@ -30,8 +32,7 @@ public class Defect_02 extends Signature {
 		setName("DEV-17975");
 		setDescription("Fill this in later.");
 		setFixVersion("5.1.0");
-		setClassList(classList);
-			
+		setClassList(classList);			
 	}
 	
 	public boolean evaluate(AnalyzedHeap analyzedHeap) {		

@@ -4,6 +4,7 @@ public class BadClass implements Comparable<BadClass>{
 
 	private String name;
 	private String question;
+	private String context;
 	private long number;
 		
 	public BadClass() {
@@ -25,6 +26,14 @@ public class BadClass implements Comparable<BadClass>{
 	public String getQuestion() {
 		return question;
 	}
+	
+	public void setContext(String context) {
+		this.context = context;
+	}
+	
+	public String getContext() {
+		return context;
+	}
 
 	public void setNumber(long number) {
 		this.number = number;
@@ -32,7 +41,7 @@ public class BadClass implements Comparable<BadClass>{
 	
 	public long getNumber() {
 		return number;
-	}	
+	}
 	
 	public boolean isQuestion() {
 		return question != null;

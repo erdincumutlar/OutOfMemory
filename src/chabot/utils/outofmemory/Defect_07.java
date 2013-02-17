@@ -20,6 +20,7 @@ public class Defect_07 extends Signature {
 	BadClass class_1 = new BadClass();
 	class_1.setName(CDSENCOUNTER);
 	class_1.setNumber(200000);
+	class_1.setContext("Objects");
 	
 	BadClass class_2 = new BadClass();
 	class_2.setName(CACHEPOPULATOR);

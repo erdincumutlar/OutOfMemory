@@ -17,7 +17,7 @@
 		String caseNumber = (String) request.getAttribute("caseNumber");
 		String tag = (String) request.getAttribute("tag");
 		String version = (String) request.getAttribute("version"); 
-%>
+%>		<div>
 		<form id="case" method="post" action="index.jsp" onSubmit="return validateCase()">
 			<fieldset class="case">
 				<legend>Case Information</legend>
@@ -39,12 +39,11 @@
 						<option value="Satyajeet Sugandhi" <%=(owner.equals("Satyajeet Sugandhi")) ? "selected" : ""%>>Satyajeet Sugandhi</option>
 						<option value="Tom Kain" <%=(owner.equals("Dr")) ? "Tom Kain" : ""%>>Tom Kain</option>
 						<option value="Vinayak Palande" <%=(owner.equals("Vinayak Palande")) ? "selected" : ""%>>Vinayak Palande</option>
-				</select>				
-				 
+				</select>				 
 				<label for="caseNumber">Case Number</label>&nbsp; 
-				<input type="text" class="case" name="caseNumber" size="20" value="<%=WebUtil.out(caseNumber)%>"/><br /> 
+				<input type="text" class="case" name="caseNumber" size="20" value="<%=WebUtil.out(caseNumber)%>" id="caseNumber"/><br /> 
 				<label for="tag">Mobilizer Tag</label>&nbsp;
-				<input type="text" class="case" name="tag" size="20" value="<%=WebUtil.out(tag)%>"/><br /> <br />
+				<input type="text" class="case" name="tag" size="20" value="<%=WebUtil.out(tag)%>" id="tag"/><br /> <br />
 			</fieldset>
 			<div class="center">
 				<input type="submit" id="caseSubmit" value="Next">
@@ -52,7 +51,8 @@
 			<div class="error">
 				<span class="error" id="caseError"></span>
 			</div>
-		</form><%	
+		</form>
+		</div><%	
 	}
 %>
 
