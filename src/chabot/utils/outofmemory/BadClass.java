@@ -80,7 +80,7 @@ public class BadClass implements Comparable<BadClass>{
 		if (!bc.isQuestion() && this.isQuestion()) {
 			return 1; // Put above
 		}		
-		return bc.getName().compareTo(this.getName()) * -1;
+		return 0;
 	}		
 	
 }
