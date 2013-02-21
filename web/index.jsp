@@ -14,7 +14,7 @@
 <%! final Logger log = Logger.getLogger(AnalyzedHeap.class); %>	
 <%	if (request.getMethod().equals("POST")) {	
 		
-		// Determine which form was submitted using hidden fields
+		// Used to identify which form was submitted
 		String caseForm = request.getParameter("caseForm");
 		String defectForm = request.getParameter("defectForm");
 		
@@ -39,9 +39,9 @@
 		// Sort the signatures in ascending order, placing questions at the end
 		Collections.sort(signatures);
 		
-		log.debug("Found: " + signatures.size() + " signatures");
+		log.debug("Found " + signatures.size() + " signatures");
 		
-		// If the "Case Information" form was submitted...
+		// If the Case form was submitted...
 		if(caseForm != null && caseForm.length() > 0) {			
 			String owner = request.getParameter("owner");
 			String caseNumber = request.getParameter("caseNumber");
@@ -53,10 +53,10 @@
 			request.setAttribute("signatures", signatures);
 			request.setAttribute("versionNormalized", versionNormalized);
 			
-			log.info(owner + ", " + caseNumber + ", " + tag + " (" + version + ", " + versionNormalized + ")");
+			log.info(owner + ", " + "Case #" + caseNumber + ", " + tag + " (" + version + ", " + versionNormalized + ")");
 		}	
 		
-		// If the Defect fom was submitted...
+		// If the Defect form was submitted...
 		if(defectForm != null && defectForm.length() > 0) {	
 			
 			AnalyzedHeap analyzedHeap = new AnalyzedHeap();	
@@ -80,6 +80,7 @@
 					}	
 				}	
 				analyzedHeap.setAnalyzedHeap(analyzedHeapMap);
+				
 				// Evaluate input against defects (e.g. Defect_[#])
 				if(sig.evaluate(analyzedHeap))	{
 					hits.add(sig);

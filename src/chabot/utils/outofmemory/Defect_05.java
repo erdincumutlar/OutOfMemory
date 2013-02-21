@@ -18,10 +18,12 @@ public class Defect_05 extends Signature {
 		BadClass class_1 = new BadClass();		
 		class_1.setName(COLUMNDATA);
 		class_1.setNumber(200);
+		class_1.setContext("MB");
 		
 		BadClass class_2 = new BadClass();		
 		class_2.setName(COLUMNROW);
-		class_2.setNumber(200);		
+		class_2.setNumber(200);	
+		class_2.setContext("MB");
 		
 		Map<String, BadClass> classList = new HashMap<String, BadClass>();
 		classList.put(class_1.getName(), class_1);

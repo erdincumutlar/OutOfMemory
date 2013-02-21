@@ -1,6 +1,9 @@
 /build
 /build.xml
-/.settings
+/web/META-INF
+.settings
 .classpath
 .project
-/build.bat
+build-all.bat
+build-war.bat
+
