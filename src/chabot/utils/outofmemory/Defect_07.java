@@ -1,4 +1,6 @@
-// @author = tkain 
+/*
+ * @author tkain 
+ */
 
 package chabot.utils.outofmemory;
 
