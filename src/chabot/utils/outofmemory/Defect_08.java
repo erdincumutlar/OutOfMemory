@@ -8,8 +8,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 /*
- * DEV-36990
- * https://jira/browse/DEV-36990
+ * DEV-39170
+ * https://jira/browse/DEV-39170
  */
 
 public class Defect_08 extends Signature {
@@ -37,7 +37,7 @@ public class Defect_08 extends Signature {
 		classList.put(class_2.getName(), class_2);
 		classList.put(class_3.getName(), class_3);
 		
-		setName("DEV-36990");
+		setName("DEV-39170");
 		setDescription("Fill this in later.");
 		setFixVersion("7.6.6");
 		setClassList(classList);
