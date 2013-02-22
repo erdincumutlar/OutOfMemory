@@ -16,7 +16,7 @@ public class Defect_09 extends Signature {
 	
 	final String ACCOUNT = "Account";
 	final String CLASSLOADER = "WebappClassLoader";
-	final String MAPACCOUNT = "Account";
+	final String MAPACCOUNT = "StandardMap.Account";
 	final String MAPPKPERSONNEL = "PKPersonnel";
 	
 	public Defect_09() {
