@@ -22,15 +22,15 @@ public class Defect_08 extends Signature {
 		
 		BadClass class_1 = new BadClass();
 		class_1.setName(HHSUBMISSION);
-		class_1.setQuestion("Is the largest thread in the dominator tree like " + HHSUBMISSION + " ?");
+		class_1.setQuestion("Is the largest thread in the dominator tree like <i>" + HHSUBMISSION + "</i> ?");
 		
 		BadClass class_2 = new BadClass();
 		class_2.setName(THREADWITHATTRIBUTES);
-		class_2.setQuestion("Is the largest thread in the dominator tree like " + THREADWITHATTRIBUTES + " ?");
+		class_2.setQuestion("Is the largest thread in the dominator tree like <i>" + THREADWITHATTRIBUTES + "</i> ?");
 		
 		BadClass class_3 = new BadClass();
 		class_3.setName(PROBLEMLIST);
-		class_3.setQuestion("Is the first or second largest class within the largest thread " + PROBLEMLIST + " ?");
+		class_3.setQuestion("Is <i>" + PROBLEMLIST + "</i> the first or second largest class within the largest thread?");
 		
 		Map<String, BadClass> classList = new HashMap<String, BadClass>();
 		classList.put(class_1.getName(), class_1);
