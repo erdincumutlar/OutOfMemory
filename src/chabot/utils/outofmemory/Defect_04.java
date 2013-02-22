@@ -23,15 +23,15 @@ public class Defect_04 extends Signature {
 		
 		BadClass class_2= new BadClass();		
 		class_2.setName(PATINTERACT);
-		class_2.setQuestion("Do these threads contain references to <i>" + PATINTERACT + "</i>?");
+		class_2.setQuestion("Do these threads contain references to <span class=\"class\">" + PATINTERACT + "</span>?");
 		
 		BadClass class_3 = new BadClass();		
 		class_3.setName(CHARGE);
-		class_3.setQuestion("Are there any <i>java.lang.String</i> objects that reference Charges?");
+		class_3.setQuestion("Are there any <span class=\"class\">java.lang.String</span> objects that reference Charges?");
 		
 		BadClass class_4 = new BadClass();		
 		class_4.setName(POSTDATA);
-		class_4.setQuestion("Does PostData under <i>org.apache.catalina.connector.Request</i> reference ChargeDesktopResultList?");
+		class_4.setQuestion("Does PostData under <span class=\"class\">org.apache.catalina.connector.Request</span> reference ChargeDesktopResultList?");
 		
 		Map<String, BadClass> classList = new HashMap<String, BadClass>();
 		classList.put(class_1.getName(), class_1);

@@ -23,6 +23,11 @@ span.error {
 	display: inline-block;
 }
 
+span.class {
+	color:#404040;
+	font-style:italic;
+}
+
 span#tag {
 	font-style:italic;
 }
