@@ -1,27 +1,77 @@
+/*
+ * @author tkain
+ */
+
 package chabot.utils.outofmemory;
+
+import java.util.HashMap;
+import java.util.Map;
 
 /*
  * DEV-9752
- * Signature
-
-A heap dump from an out of memory error that was caused by this issue will include instances of the Account class whose retained heap size is over 400MB.
-
-    Open the heap dump using Eclipse Memory Analyzer.
-    Search for Account in the class histogram.
-    Right click the Account class and select "Calculate Precise Retained Size".
-    If the retained heap size is over 400MB, the OOM was caused by DEV-9752.
-    If the retained heap size is under 400MB open the Dominator Tree
-    Check if org.apache.catalina.loader.WebappClassLoader is over 300MB
-    Expand org.apache.catalina.loader
-    Expand com.patientkeeper.syncengine.SyncEngineCache if it is the majority of the WebappClassLoader memory right-click on com.patientkeeper.syncengine.StandardMap and select Java Basics, open in Dominator Tree.
-    In the pop-up window select Group By Class from the group drop-down
-    Expand all classes and check Account and PKPersonnel, if either have thousands of objects this is the cause of the out of memory.
-
-    Please note that DEV-9752 can mask instances of DEV-19859. All cases exhibiting DEV-9752 should also be checked for evidence of DEV-19859.
-    
-    Resolved in 4.3.3
+ * https://jira/browse/DEV-9752
  */
 
-public class Defect_09 {
+public class Defect_09 extends Signature {
+	
+	final String ACCOUNT = "Account";
+	final String CLASSLOADER = "WebappClassLoader";
+	final String MAPACCOUNT = "com.patientkeeper.syncengine.StandardMap.Account";
+	final String MAPPKPERSONNEL = "com.patientkeeper.syncengine.StandardMap.PKPersonnel";
+	
+	public Defect_09() {
+		
+	BadClass class_1 = new BadClass();
+	class_1.setName(ACCOUNT);
+	class_1.setNumber(400);
+	class_1.setContext("MB");
+	
+	BadClass class_2 = new BadClass();
+	class_2.setName(CLASSLOADER);
+	class_2.setNumber(300);
+	class_2.setContext("MB");
+	
+	BadClass class_3 = new BadClass();
+	class_3.setName(MAPACCOUNT);
+	class_3.setNumber(1000);
+	class_3.setContext("Objects");
+	
+	BadClass class_4 = new BadClass();
+	class_4.setName(MAPPKPERSONNEL);
+	class_4.setNumber(1000);
+	class_4.setContext("Objects");
+	
+	Map<String, BadClass> classList = new HashMap<String, BadClass>();
+	classList.put(class_1.getName(), class_1);
+	classList.put(class_2.getName(), class_2);
+	classList.put(class_3.getName(), class_3);
+	classList.put(class_4.getName(), class_4);
+	
+	setName("DEV-9752");
+	setDescription("Fill this in later.");
+	setFixVersion("4.3.3");
+	setClassList(classList);
+		
+	}//end Defect
+	
+	/* 
+	 * Unable to locate any prior heaps to reference, 
+	 * so I'm interpreting the below line as 
+	 * "continue to next steps if WebappClassLoader is > 300 MB"
+	 * 
+	 * "Check if org.apache.catalina.loader.WebappClassLoader is over 300MB"
+	 * https://na2.salesforce.com/50140000000HuCl
+	 */
 
-}
+	public boolean evaluate(AnalyzedHeap analyzedHeap) {
+		Boolean evaluateVariable = false;
+		if (analyzedHeap.getNumber(this.getName() + "_" + ACCOUNT) >= classList.get(ACCOUNT).getNumber()) {
+			evaluateVariable = true;
+		} else if (analyzedHeap.getNumber(this.getName() + "_" + CLASSLOADER) >= classList.get(CLASSLOADER).getNumber()) {
+			if (analyzedHeap.getNumber(this.getName() + "_" + MAPACCOUNT) >= classList.get(MAPACCOUNT).getNumber() || analyzedHeap.getNumber(this.getName() + "_" + MAPPKPERSONNEL) >= classList.get(MAPPKPERSONNEL).getNumber()) {
+				evaluateVariable = true;
+			}
+		} return evaluateVariable;
+	}//end evaluate
+	
+}//end class
