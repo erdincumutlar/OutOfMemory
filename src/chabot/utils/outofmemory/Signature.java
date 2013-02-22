@@ -5,7 +5,8 @@ import java.util.Map;
 public abstract class Signature implements Comparable<Signature>{
 
 	private String name;
-	private String description;	
+	private String description;
+	private String instructions;
 	private String fixVersion;
 		
 	public Map<String, BadClass> classList;
@@ -36,6 +37,14 @@ public abstract class Signature implements Comparable<Signature>{
 		
 	public String getFixVersion() {
 		return fixVersion;
+	}
+	
+	public void setInstructions(String instructions) {
+		this.instructions = instructions;
+	}
+	
+	public String getInstructions() {
+		return instructions;
 	}
 	
 	public long getFixVersionNormalized() {

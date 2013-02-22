@@ -4,8 +4,8 @@ a:hover {text-decoration:underline;}
 a:active {color:#FF0000;} 
 
 body {
-	font-family: Calibri, Tahoma, Times New Roman, Sans Serif;
-	font-size: 15px;
+	font-family: Arial, Calibri, Tahoma, Times New Roman, Sans Serif;
+	font-size: 12px;
 }
 
 span.title {
@@ -38,12 +38,11 @@ div#title {
 	border-bottom: 1px solid;
 }
 
-div#instructions {	
+div#content {	
 	margin-top: 15px;
 	margin-bottom: 15px;
 	padding-left:5px;
 }
-
 
 div#leftPane {	
 	padding-left:15px;
@@ -55,6 +54,14 @@ div#submit {
 	margin-bottom: 5px;
 }
 
+
+div.instructions {	
+	text-align:center;
+	margin-bottom: 5px;
+	font-style:italic;
+	font-size:11px;
+}
+
 div.center {
 	text-align:center;
 }
@@ -62,8 +69,8 @@ div.center {
 fieldset {
 	margin-top: 5px;
 	margin-bottom: 5px;
-	background-color: #E0E0E0;
-	border: 1px solid #C0C0C0;
+	background-color: #F0F0F0;
+	border: 1px solid #888888;
 }
 
 fieldset label, fieldset input {
@@ -98,9 +105,7 @@ fieldset.case {
 fieldset.case label {
 	display: inline-block;
 	width: 140px;
-	text-align:left;
-	text-indent:15px;	
-	font-style:italic;	
+	text-align:right;
 }
 
 fieldset.case input {

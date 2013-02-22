@@ -41,6 +41,7 @@ public class Defect_04 extends Signature {
 		
 		setName("DEV-13586");
 		setDescription("Fill this in later.");
+		setInstructions("Navigate to Java Basics | Thread Overview to view thread details:");
 		setFixVersion("7.6.4");
 		setClassList(classList);				
 	}

@@ -30,7 +30,8 @@ if(tag != null && tag.length() > 0) {
 				else {
 					%><fieldset class="thin"><%	
 				} %> 							
-				<legend><%=sig.getName()%></legend>				 
+				<legend><%=sig.getName()%></legend>		 
+				<div class="instructions"><%=sig.getInstructions()%></div>
 <%				List<BadClass> classes = new ArrayList<BadClass>(sig.getClassList().values());
 				Collections.sort(classes);
 				for(BadClass badClass : classes) {
@@ -45,7 +46,7 @@ if(tag != null && tag.length() > 0) {
 					<%	}
 						// Display input fields for megabyte thresholds
 						else { %>								
-							<label class="class" for="<%=name%>"><%=badClass.getName()%></label>
+							<label class="class" for="<%=name%>"><%=badClass.getName()%></label>&nbsp;
 							<input type="text" class="user" id="<%=name%>" name="<%=name%>" size="5"
 							value="<%=analyzedHeap != null ? WebUtil.out(analyzedHeap.getNumber(name)) : ""%>"/>&nbsp;<%=badClass.getContext()%>			  				  
 							<%

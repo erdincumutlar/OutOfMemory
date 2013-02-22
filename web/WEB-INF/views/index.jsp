@@ -16,7 +16,7 @@
 			<span class="title">Support OOM Analysis</span>
 		</div>
 		<div id="body">
-			<div id="instructions">
+			<div id="content">
 				Instructions for determining the values below can be found on
 				Support's <a
 					href="https://confluence/display/support/Out-of-Memory+Analysis">
