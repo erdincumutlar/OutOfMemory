@@ -16,8 +16,8 @@ public class Defect_09 extends Signature {
 	
 	final String ACCOUNT = "Account";
 	final String CLASSLOADER = "WebappClassLoader";
-	final String MAPACCOUNT = "com.patientkeeper.syncengine.StandardMap.Account";
-	final String MAPPKPERSONNEL = "com.patientkeeper.syncengine.StandardMap.PKPersonnel";
+	final String MAPACCOUNT = "Account";
+	final String MAPPKPERSONNEL = "PKPersonnel";
 	
 	public Defect_09() {
 		

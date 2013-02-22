@@ -14,9 +14,9 @@ import java.util.Map;
 
 public class Defect_08 extends Signature {
 	
-	final String HHSUBMISSION = "java.lang.Thread @<address> Sync08:<user_nm>:2:<sessionlog_id>:Submission[PATIENTID-<pat_id>]";
-	final String THREADWITHATTRIBUTES = "org.apache.tomcat.util.threads.ThreadWithAttributes @<address> http-0.0.0.0-31140-Processor6";
-	final String PROBLEMLIST = "com.patientkeeper.datamodel.ProblemList";
+	final String HHSUBMISSION = "java.lang.Thread @[address] Sync08:[user_nm]:2:[sessionlog_id]:Submission[PATIENTID-[pat_id]]";
+	final String THREADWITHATTRIBUTES = "org.apache.tomcat.util.threads.ThreadWithAttributes @[address] http-0.0.0.0-31140-Processor6";
+	final String PROBLEMLIST = "ProblemList";
 	
 	public Defect_08() {
 		
