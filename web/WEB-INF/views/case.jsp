@@ -21,7 +21,7 @@
 		<form id="case" method="post" action="index.jsp" onSubmit="return validateCase()">
 			<fieldset class="case">
 				<legend>Case Information</legend>
-				<div class="instructions">Fill out the information below:</div>
+				<div class="instructions">All fields required</div>
 				<input type="hidden" name="caseForm" value="caseForm"/>
 				<label for="owner">Case Owner</label>&nbsp; 
 				<select class="case" name="owner" size="1" id="owner">

@@ -61,10 +61,11 @@ div#submit {
 
 
 div.instructions {	
+	width: 100%;
 	margin-bottom: 5px;
 	font-style:italic;
 	font-size:11px;
-	color: #404040;	
+	color: #404040;
 }
 
 div.center {
