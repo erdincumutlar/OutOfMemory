@@ -4,8 +4,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 /*
- * DEV-13586
- * https://jira/browse/DEV-13586
+ * DEV-22287
+ * https://jira/browse/DEV-22287
  */
 
 public class Defect_04 extends Signature {
@@ -39,7 +39,7 @@ public class Defect_04 extends Signature {
 		classList.put(class_3.getName(), class_3);	
 		classList.put(class_4.getName(), class_4);	
 		
-		setName("DEV-13586");
+		setName("DEV-22287");
 		setDescription("Fill this in later.");
 		setInstructions("Navigate to Java Basics | Thread Overview to view thread details:");
 		setFixVersion("7.6.4");
