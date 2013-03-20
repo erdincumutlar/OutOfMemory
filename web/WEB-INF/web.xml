@@ -8,5 +8,50 @@
     <welcome-file>default.html</welcome-file>
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
-  </welcome-file-list>  
+  </welcome-file-list> 
+ 
+ 	<context-param>
+	  <param-name>authenticationContext</param-name>
+	  <param-value>/</param-value>
+	</context-param>
+  
+  <filter>
+    <filter-name>LoginFilter</filter-name>
+    <filter-class>chabot.utils.security.AuthorizationFilter</filter-class>
+    <init-param>
+	  <param-name>all-users</param-name>
+	  <param-value>true</param-value>
+    </init-param>	
+  </filter>
+  <filter-mapping>
+    <filter-name>LoginFilter</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>   
+ 
+  	<servlet>
+		<servlet-name>LoginServlet</servlet-name>
+		<servlet-class>chabot.utils.security.LoginServlet</servlet-class>
+		<init-param>
+			<param-name>cookiePath</param-name>
+			<param-value>/</param-value>
+		</init-param>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>LoginServlet</servlet-name>
+		<url-pattern>/login</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>LogoutServlet</servlet-name>
+		<servlet-class>chabot.utils.security.LogoutServlet</servlet-class>
+		<init-param>
+			<param-name>cookiePath</param-name>
+			<param-value>/</param-value>
+		</init-param>		
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>LogoutServlet</servlet-name>
+		<url-pattern>/logout</url-pattern>
+	</servlet-mapping>
+  
 </web-app>
