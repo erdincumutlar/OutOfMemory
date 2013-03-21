@@ -1,5 +1,5 @@
 <%@ page 
-	import="chabot.utils.security.*"
+	import="com.patientkeeper.security.*"
 %>
 <%
 

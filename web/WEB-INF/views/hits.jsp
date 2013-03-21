@@ -1,7 +1,7 @@
 <%@ page language="java" 
-		 import="chabot.utils.outofmemory.*,
-		 		 chabot.utils.reflections.*,
-		 		 chabot.utils.tools.*,
+		 import="com.patientkeeper.outofmemory.*,
+		         com.patientkeeper.reflections.*,
+		         com.patientkeeper.tools.*,
 		 		 java.util.ArrayList,
 		         java.util.List"
 		 contentType="text/html; charset=ISO-8859-1"

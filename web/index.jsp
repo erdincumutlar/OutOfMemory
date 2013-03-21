@@ -1,6 +1,6 @@
 <%@ page language="java" 
-	 import="chabot.utils.outofmemory.*,
-	         chabot.utils.reflections.*,
+	 import="com.patientkeeper.outofmemory.*,
+	         com.patientkeeper.reflections.*,
 	         org.apache.log4j.Logger,
 	         java.util.ArrayList,
 	         java.util.List,
@@ -32,7 +32,7 @@
 				
 		// Find all classes that extend Signature (e.g. Defect_[#].java)
 		List<Signature> signatures = new ArrayList<Signature>();		
-		for(Signature each : Reflection.findSubTypesOf("chabot.utils.outofmemory", Signature.class)) {
+		for(Signature each : Reflection.findSubTypesOf("com.patientkeeper.outofmemory", Signature.class)) {
 			signatures.add(each);							
 		}
 		

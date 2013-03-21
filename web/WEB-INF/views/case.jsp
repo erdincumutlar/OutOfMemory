@@ -1,6 +1,6 @@
 <%@ page language="java" 
-		 import="chabot.utils.outofmemory.*,
-	     		 chabot.utils.tools.WebUtil,
+		 import="com.patientkeeper.outofmemory.*,
+		         com.patientkeeper.tools.WebUtil,
 	     		 java.util.List,
 	     		 java.util.ArrayList"
 
