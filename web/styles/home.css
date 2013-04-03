@@ -33,7 +33,11 @@ span#tag {
 }
 
 div#outer {
-	width: 100%
+	width: 100%;
+}
+
+div#login fieldset{
+	width: 320px;
 }
 
 div#title {	
@@ -41,6 +45,10 @@ div#title {
 	margin-bottom: 5px;		
 	margin-top: 15px;
 	border-bottom: 1px solid;
+}
+
+div#user {
+	float:right;
 }
 
 div#content {	
@@ -70,6 +78,10 @@ div.instructions {
 
 div.center {
 	text-align:center;
+}
+
+input#caseOwner {
+	background:#c0c0c0;
 }
 
 fieldset {

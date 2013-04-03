@@ -1,9 +1,9 @@
-<%@ page 
+<%@ page language="java"
 	import="com.patientkeeper.security.*"
 %>
 <%
-
 Authentication auth = AuthenticationManager.read(getServletContext(), session);
+
 if (auth != null) {
 	response.sendRedirect("index.jsp");
 	return;
@@ -26,6 +26,5 @@ if (username == null || username.equals("")) {
 }
 request.setAttribute("username", username);
 request.setAttribute("remember", remember);
-
 %>
 <jsp:include page="/WEB-INF/views/login.jsp" />

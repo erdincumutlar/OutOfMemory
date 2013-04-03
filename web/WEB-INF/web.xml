@@ -25,7 +25,8 @@
   </filter>  
   <filter-mapping>
     <filter-name>LoginFilter</filter-name>
-    <url-pattern>/*</url-pattern>
+    <url-pattern>/index.jsp</url-pattern>
+    <url-pattern>/header.jsp</url-pattern>
   </filter-mapping>
   
   <servlet>

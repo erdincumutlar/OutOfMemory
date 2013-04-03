@@ -1,19 +1,21 @@
 <%@ page language="java" 
-	 import="com.patientkeeper.outofmemory.*,
-	         com.patientkeeper.reflections.*,
-	         org.apache.log4j.Logger,
-	         java.util.ArrayList,
-	         java.util.List,
-	         java.util.Map,
-	         java.util.HashMap,
-	         java.util.Collections,
-	         org.apache.regexp.RE"		         
-	 contentType="text/html; charset=ISO-8859-1"
-   	 pageEncoding="ISO-8859-1" %>  
-
+	import="com.patientkeeper.outofmemory.*"
+	import="com.patientkeeper.reflections.*"
+	import="com.patientkeeper.security.Authentication"
+    import="com.patientkeeper.security.AuthenticationManager"
+	import="org.apache.log4j.Logger"
+	import="java.util.ArrayList"
+	import="java.util.List"
+	import="java.util.Map"
+	import="java.util.HashMap"
+	import="java.util.Collections"
+	import="org.apache.regexp.RE"
+%>  
 <%! final Logger log = Logger.getLogger(AnalyzedHeap.class); %>	
-<%	if (request.getMethod().equals("POST")) {	
-		
+<%  Authentication auth = AuthenticationManager.read(getServletContext(), session);
+    request.setAttribute("authentication", auth);
+	
+	if (request.getMethod().equals("POST")) {			
 		// Used to identify which form was submitted
 		String caseForm = request.getParameter("caseForm");
 		String defectForm = request.getParameter("defectForm");
@@ -47,7 +49,6 @@
 			String caseNumber = request.getParameter("caseNumber");
 			
 			request.setAttribute("tag", tag);
-			request.setAttribute("owner", owner);
 			request.setAttribute("version", version);
 			request.setAttribute("caseNumber", caseNumber);
 			request.setAttribute("signatures", signatures);
@@ -98,7 +99,6 @@
 			log.info("Finished...");	
 
 			}
-}
-	 
+}	 
 %>
 <jsp:include page="WEB-INF/views/index.jsp" />
