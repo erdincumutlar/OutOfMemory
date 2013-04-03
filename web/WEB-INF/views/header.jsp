@@ -14,12 +14,15 @@
 <title>Support OOM Analysis</title>
 </head>
 <body>
-<div id="title">
-	<span class="title">Support OOM Analysis</span>
-	<div id="user">
+<div id="header">
+	<div id="title">
+		<span class="title">Support OOM Analysis</span>
+	</div>	
+	<div id="auth">
 		<% if(auth != null) { %>
 			<b>Logged in:</b> <%=auth.getFullname()%><br>
 			<a href="/logout">Logout</a> 			
 		<% } %>
 	</div>
+	<div style="clear: both"></div>
 </div>

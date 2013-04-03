@@ -5,11 +5,9 @@
 	import="com.patientkeeper.security.AuthenticationManager"
 	import="java.util.List"
 	import="java.util.ArrayList"	
- %>
-
-<%	
-	Authentication auth = (Authentication) request.getAttribute("authentication");
-	List<Signature> hits =  (List<Signature>) request.getAttribute("hits");	
+%>
+<%	Authentication auth = (Authentication) request.getAttribute("authentication");
+	List<Signature> hits = (List<Signature>) request.getAttribute("hits");	
 	
 	if(hits == null) {
 		String caseNumber = (String) request.getAttribute("caseNumber");
@@ -24,7 +22,7 @@
 				<label for="owner">Case Owner</label>&nbsp;
 				<input type="text" class="case" size="20" id="caseOwner" value="<%=auth.getFullname()%>" readonly/><br>			 
 				<label for="caseNumber">Case Number</label>&nbsp; 
-				<input type="text" class="case" name="caseNumber" size="20" value="<%=WebUtil.out(caseNumber)%>" id="caseNumber"/><br> 
+				<input type="text" class="case" name="caseNumber" size="20" value="<%=WebUtil.out(caseNumber)%>" id="caseNumber" maxlength="7"/><br> 
 				<label for="tag">Mobilizer Tag</label>&nbsp;
 				<input type="text" class="case" name="tag" size="20" value="<%=WebUtil.out(tag)%>" id="tag"/><br><br>
 			</fieldset>

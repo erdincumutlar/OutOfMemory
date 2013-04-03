@@ -32,26 +32,24 @@ span#tag {
 	font-style:italic;
 }
 
-div#outer {
-	width: 100%;
-}
-
 div#login fieldset{
 	width: 320px;
 }
 
-div#title {	
-	padding-bottom: 5px;
-	margin-bottom: 5px;		
-	margin-top: 15px;
-	border-bottom: 1px solid;
+div#header {	
+	border: 1px solid green;
 }
 
-div#user {
+div#title {
+	float:left;
+}
+
+div#auth {
+	border: 1px solid red;
 	float:right;
 }
 
-div#content {	
+div#blurb {	
 	margin-top: 15px;
 	margin-bottom: 15px;
 	padding-left:5px;
