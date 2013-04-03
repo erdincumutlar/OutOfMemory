@@ -24,14 +24,15 @@ if(tag != null && tag.length() > 0) {
 			// Display relevant defects based on version
 			if (versionNormalized < sig.getFixVersionNormalized()) {
 			 	// Set the width of the fieldset based on whether the defect has question text
-				if(sig.hasQuestion()) {								
-					%><fieldset class="wide"><%
-				}
-				else {
-					%><fieldset class="thin"><%	
-				} %> 							
+				if(sig.hasQuestion()) { %>
+					<fieldset class="wide">
+			<%	} else { %>
+					<fieldset class="thin">
+			<%	} %> 							
 				<legend><%=sig.getName()%></legend>		 
-				<div class="instructions"><%=sig.getInstructions()%></div>
+				<div class="instructions"><%=sig.getInstructions()%>
+				<a href="javascript:popup('info.jsp', 'info','10','300')"><img id="info" src="/images/info.png"/></a>
+				</div>
 <%				List<BadClass> classes = new ArrayList<BadClass>(sig.getClassList().values());
 				Collections.sort(classes);
 				for(BadClass badClass : classes) {

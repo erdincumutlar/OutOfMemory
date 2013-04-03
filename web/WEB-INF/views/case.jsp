@@ -28,7 +28,7 @@
 				<input type="text" class="case" name="tag" size="20" value="<%=WebUtil.out(tag)%>" id="tag"/><br><br>
 			</fieldset>
 			<div class="center">
-				<input type="submit" id="caseSubmit" value="Next">
+				<input type="submit" id="caseSubmit" value="Generate Signature List">
 			</div>
 			<div class="error">
 				<span class="error" id="caseError"></span>

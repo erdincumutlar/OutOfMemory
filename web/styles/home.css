@@ -8,6 +8,13 @@ body {
 	font-size: 12px;
 }
 
+img#info {
+	height:16px;
+	width:16px;
+	border: 0px;
+	vertical-align: bottom;
+}	
+
 span.title {
 	font-family: 'Press Start 2P';
 	font-size: 30px;

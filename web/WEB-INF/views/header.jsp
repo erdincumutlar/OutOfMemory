@@ -11,6 +11,7 @@
 <link href="http://fonts.googleapis.com/css?family=Press Start 2P" rel="stylesheet" type="text/css">
 <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 <script type="text/javascript" src="scripts/validate.js"></script>
+<script type="text/javascript" src="scripts/info.js"></script>
 <title>Support OOM Analysis</title>
 </head>
 <body>
