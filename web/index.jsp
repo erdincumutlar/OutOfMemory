@@ -45,7 +45,7 @@
 		
 		// If the Case form was submitted...
 		if(caseForm != null && caseForm.length() > 0) {			
-			String owner = request.getParameter("owner");
+			String caseOwner = request.getParameter("caseOwner");
 			String caseNumber = request.getParameter("caseNumber");
 			
 			request.setAttribute("tag", tag);
@@ -54,7 +54,7 @@
 			request.setAttribute("signatures", signatures);
 			request.setAttribute("versionNormalized", versionNormalized);
 			
-			log.info(owner + ", " + "Case #" + caseNumber + ", " + tag + " (" + version + ", " + versionNormalized + ")");
+			log.info(caseOwner + ", " + "Case #" + caseNumber + ", " + tag + " (" + version + ", " + versionNormalized + ")");
 		}	
 		
 		// If the Defect form was submitted...

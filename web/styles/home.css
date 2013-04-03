@@ -37,7 +37,7 @@ div#login fieldset{
 }
 
 div#header {	
-	border: 1px solid green;
+	border-bottom: 1px solid;
 }
 
 div#title {
@@ -45,7 +45,6 @@ div#title {
 }
 
 div#auth {
-	border: 1px solid red;
 	float:right;
 }
 

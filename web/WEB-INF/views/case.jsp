@@ -19,6 +19,7 @@
 				<legend>Case Information</legend>
 				<div class="instructions">All fields required</div>
 				<input type="hidden" name="caseForm" value="caseForm"/>
+				<input type="hidden" name="caseOwner" value="<%=auth.getFullname()%>"/>
 				<label for="owner">Case Owner</label>&nbsp;
 				<input type="text" class="case" size="20" id="caseOwner" value="<%=auth.getFullname()%>" readonly/><br>			 
 				<label for="caseNumber">Case Number</label>&nbsp; 
