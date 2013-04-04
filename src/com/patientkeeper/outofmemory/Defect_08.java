@@ -39,7 +39,7 @@ public class Defect_08 extends Signature {
 		
 		setName("DEV-39170");
 		setDescription("Fill this in later.");
-		setInstructions("Review the Dominator Tree to identify the items below:");
+		setBlurb("Review the Dominator Tree to identify the items below:");
 		setFixVersion("7.6.6");
 		setClassList(classList);
 		

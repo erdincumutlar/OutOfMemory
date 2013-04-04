@@ -5,7 +5,7 @@
 %>
 <div align="center">
 <form action="login" method="POST">
-<input type="hidden" name="retURL" value="/index.jsp">
+<input type="hidden" name="retURL" value="index.jsp">
 <div id="login">
 <fieldset class="case">
 <legend><span class="left">Login</span></legend>

@@ -28,8 +28,8 @@ if(tag != null && tag.length() > 0) {
 					<fieldset class="thin">
 			<%	} %> 							
 				<legend><%=sig.getName()%></legend>		 
-				<div class="instructions"><%=sig.getInstructions()%>
-				<a href="javascript:popup('info.jsp?id=<%=sig.getName()%>', 'info')"><img id="info" src="/images/info.png"/></a>
+				<div class="instructions"><%=sig.getBlurb()%>
+				<a href="javascript:popup('info.jsp?id=<%=sig.getName()%>', 'info')"><img id="info" src="images/info.png"/></a>
 				</div>
 <%				List<BadClass> classes = new ArrayList<BadClass>(sig.getClassList().values());
 				Collections.sort(classes);

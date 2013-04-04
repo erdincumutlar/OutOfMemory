@@ -1,7 +1,11 @@
 package com.patientkeeper.outofmemory;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+
+import com.patientkeeper.tools.ToHTML;
 
 /*
  * DEV-13285
@@ -27,11 +31,19 @@ public class Defect_01 extends Signature {
 		
 		Map<String, BadClass> classList = new HashMap<String, BadClass>();
 		classList.put(class_1.getName(), class_1);
-		classList.put(class_2.getName(), class_2);		
-				
+		classList.put(class_2.getName(), class_2);
+		
+		List<String> instructions = new ArrayList<String>(0);
+		instructions.add("Open the heap dump using Eclipse Memory Analyzer.");
+		instructions.add("Search for Crosstab in the class histogram.");
+		instructions.add("Right click the CrosstabColumnData and CrosstabColumnRow classes and select 'Calculate Precise Retained Size'.");
+		instructions.add("Enter the values into appropriate inputs fields.");
+		String ordered = ToHTML.getOrderedList(instructions);
+					
 		setName("DEV-13285");
 		setDescription("Fill this in later.");
-		setInstructions("Calculate the retained heap sizes of the classes below:");
+		setInstructions(ordered);
+		setBlurb("Calculate the retained heap sizes of the classes below:");
 		setFixVersion("5.1.0");
 		setClassList(classList);				
 	}

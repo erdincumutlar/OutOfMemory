@@ -35,7 +35,7 @@ public class Defect_07 extends Signature {
 	setName("DEV-36990");
 	setDescription("Fill this in later.");
 	setFixVersion("Dev To Manage");
-	setInstructions("Identify the number of objects in the class below, and review thread details via Java Basics | Thread Details:");
+	setBlurb("Identify the number of objects in the class below, and review thread details via Java Basics | Thread Details:");
 	setClassList(classList);	
 		
 	}

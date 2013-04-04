@@ -49,7 +49,7 @@ public class Defect_09 extends Signature {
 	
 	setName("DEV-9752");
 	setDescription("Fill this in later.");
-	setInstructions("Calculate the retained heap sizes of the classes below:");
+	setBlurb("Calculate the retained heap sizes of the classes below:");
 	setFixVersion("4.3.3");
 	setClassList(classList);
 		

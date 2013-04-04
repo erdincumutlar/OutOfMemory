@@ -6,8 +6,10 @@ public abstract class Signature implements Comparable<Signature>{
 
 	private String name;
 	private String description;
-	private String instructions;
+	private String blurb;
 	private String fixVersion;
+	
+	private String instructions;
 		
 	public Map<String, BadClass> classList;
 	
@@ -39,12 +41,20 @@ public abstract class Signature implements Comparable<Signature>{
 		return fixVersion;
 	}
 	
-	public void setInstructions(String instructions) {
-		this.instructions = instructions;
+	public void setBlurb(String blurb) {
+		this.blurb = blurb;
+	}
+	
+	public String getBlurb() {
+		return blurb;
 	}
 	
 	public String getInstructions() {
 		return instructions;
+	}
+
+	public void setInstructions(String instructions) {
+		this.instructions = instructions;
 	}
 	
 	public long getFixVersionNormalized() {

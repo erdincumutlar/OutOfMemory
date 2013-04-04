@@ -2,11 +2,14 @@
     import="com.patientkeeper.security.Authentication"
     import="com.patientkeeper.security.AuthenticationManager"
 %>
-<% Authentication auth = (Authentication) request.getAttribute("authentication"); %>
+<% Authentication auth = (Authentication) request.getAttribute("authentication"); 
+   String baseURL = request.getContextPath();
+   System.out.println("baseURL (via header)="+baseURL);
+%>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<link rel="stylesheet" type="text/css" href="styles/home.css" media="screen" />
+<link rel="stylesheet" type="text/css" href="<%=baseURL%>/styles/home.css" media="screen" />
 <!--[if IE]><link href="styles/fieldset-ie.css" rel="stylesheet" type="text/css" /><![endif]-->
 <link href="http://fonts.googleapis.com/css?family=Press Start 2P" rel="stylesheet" type="text/css">
 <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
@@ -17,10 +20,10 @@
 <body>
 <div id="header">
 	<div id="title">Support OOM Analysis</div> 
-	<div id="auth">
+	<div class="right">
 		<% if(auth != null) { %>
 			Welcome, <b><%=auth.getFullname()%></b>!<br>
-			<a href="/logout">Logout</a><br>
+			<a href="<%=baseURL%>/logout">Logout</a><br>
 			<a href="mailto:mchabot@patientkeeper.com;technicalconsultants@patientkeeper.com">Report An Issue</a> 			
 		<% } %>
 	</div>

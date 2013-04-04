@@ -10,6 +10,11 @@ img#info {
 	vertical-align: bottom;
 }	
 
+span.title {
+	font-family: 'Press Start 2P';
+	font-size: 32px;
+}
+
 span.black {
 	color: black;
 }
@@ -42,14 +47,16 @@ div#header {
 	padding-bottom: 5px;
 }
 
+div#devTitle {
+	float:left;
+    font-family: 'Press Start 2P';
+	font-size: 20px;
+}
+
 div#title {
 	float:left;
     font-family: 'Press Start 2P';
 	font-size: 32px;
-}
-
-div#auth {
-	float:right;
 }
 
 div#blurb {	
@@ -68,6 +75,9 @@ div#submit {
 	margin-bottom: 5px;
 }
 
+div#dev {
+	border-bottom:1px solid;
+}
 
 div.instructions {	
 	width: 100%;
@@ -79,6 +89,10 @@ div.instructions {
 
 div.center {
 	text-align:center;
+}
+
+div.right {
+	float:right;
 }
 
 fieldset {

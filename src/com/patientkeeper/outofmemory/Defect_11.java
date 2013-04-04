@@ -41,7 +41,7 @@ public class Defect_11 extends Signature {
 		
 		setName("DEV-31450");
 		setDescription("Fill this in later.");
-		setInstructions("Open the Dominator Tree and look for instances of net.sf.hibernate.impl.SessionImpl");
+		setBlurb("Open the Dominator Tree and look for instances of net.sf.hibernate.impl.SessionImpl");
 		setFixVersion("7.x CPOE Triage");
 		setClassList(classList);				
 	}
