@@ -5,9 +5,7 @@
 		 		 java.util.ArrayList,
 		         java.util.Collections,
 		         java.util.List"
-		 contentType="text/html; charset=ISO-8859-1"
-		 pageEncoding="ISO-8859-1" %>
-
+%>
 <% String tag = (String) request.getAttribute("tag");
 if(tag != null && tag.length() > 0) {
 	long versionNormalized = (Long) request.getAttribute("versionNormalized");
@@ -31,7 +29,7 @@ if(tag != null && tag.length() > 0) {
 			<%	} %> 							
 				<legend><%=sig.getName()%></legend>		 
 				<div class="instructions"><%=sig.getInstructions()%>
-				<a href="javascript:popup('info.jsp', 'info','10','300')"><img id="info" src="/images/info.png"/></a>
+				<a href="javascript:popup('info.jsp?id=<%=sig.getName()%>', 'info')"><img id="info" src="/images/info.png"/></a>
 				</div>
 <%				List<BadClass> classes = new ArrayList<BadClass>(sig.getClassList().values());
 				Collections.sort(classes);

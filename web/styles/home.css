@@ -1,8 +1,3 @@
-a:link {text-decoration:none;}   
-a:visited {color:#800080;} 
-a:hover {text-decoration:underline;}  
-a:active {color:#FF0000;} 
-
 body {
 	font-family: Arial, Calibri, Tahoma, Times New Roman, Sans Serif;
 	font-size: 12px;
@@ -15,13 +10,12 @@ img#info {
 	vertical-align: bottom;
 }	
 
-span.title {
-	font-family: 'Press Start 2P';
-	font-size: 30px;
-}
-
 span.black {
 	color: black;
+}
+
+span.left {
+	text-align: left;
 }
 
 span.error {
@@ -45,10 +39,13 @@ div#login fieldset{
 
 div#header {	
 	border-bottom: 1px solid;
+	padding-bottom: 5px;
 }
 
 div#title {
 	float:left;
+    font-family: 'Press Start 2P';
+	font-size: 32px;
 }
 
 div#auth {
@@ -84,15 +81,16 @@ div.center {
 	text-align:center;
 }
 
-input#caseOwner {
-	background:#c0c0c0;
-}
-
 fieldset {
 	margin-top: 5px;
 	margin-bottom: 5px;
 	background-color: #F0F0F0;
 	border: 1px solid #888888;
+}
+
+legend {
+	text-align: left;
+	font-weight: bold;
 }
 
 fieldset label, fieldset input {
@@ -103,10 +101,6 @@ fieldset label, fieldset input {
 fieldset input {
 	text-align: right;
 	display: inline-block;
-}
-
-fieldset legend {
-	font-weight: bold;
 }
 
 fieldset label.class {

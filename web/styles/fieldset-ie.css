@@ -9,3 +9,8 @@ legend {
     top: -0.7em;
 }
 
+div#header {	
+	border-bottom: 1px solid;
+	padding-bottom: 0px;
+}
+

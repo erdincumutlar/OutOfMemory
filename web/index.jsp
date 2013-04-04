@@ -44,17 +44,14 @@
 		log.debug("Found " + signatures.size() + " signatures");
 		
 		// If the Case form was submitted...
-		if(caseForm != null && caseForm.length() > 0) {			
-			String caseOwner = request.getParameter("caseOwner");
-			String caseNumber = request.getParameter("caseNumber");
-			
+		if(caseForm != null && caseForm.length() > 0) {						
+			String caseNumber = request.getParameter("caseNumber");			
 			request.setAttribute("tag", tag);
 			request.setAttribute("version", version);
 			request.setAttribute("caseNumber", caseNumber);
 			request.setAttribute("signatures", signatures);
-			request.setAttribute("versionNormalized", versionNormalized);
-			
-			log.info(caseOwner + ", " + "Case #" + caseNumber + ", " + tag + " (" + version + ", " + versionNormalized + ")");
+			request.setAttribute("versionNormalized", versionNormalized);			
+			log.info(auth.getFullname() + ", " + "Case #" + caseNumber + ", " + tag + " (" + version + ", " + versionNormalized + ")");
 		}	
 		
 		// If the Defect form was submitted...
@@ -98,7 +95,7 @@
 			request.setAttribute("versionNormalized", versionNormalized);
 			log.info("Finished...");	
 
-			}
+		}
 }	 
 %>
 <jsp:include page="WEB-INF/views/index.jsp" />

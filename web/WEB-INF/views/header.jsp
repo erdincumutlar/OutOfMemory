@@ -16,13 +16,12 @@
 </head>
 <body>
 <div id="header">
-	<div id="title">
-		<span class="title">Support OOM Analysis</span>
-	</div>	
+	<div id="title">Support OOM Analysis</div> 
 	<div id="auth">
 		<% if(auth != null) { %>
-			<b>Logged in:</b> <%=auth.getFullname()%><br>
-			<a href="/logout">Logout</a> 			
+			Welcome, <b><%=auth.getFullname()%></b>!<br>
+			<a href="/logout">Logout</a><br>
+			<a href="mailto:mchabot@patientkeeper.com;technicalconsultants@patientkeeper.com">Report An Issue</a> 			
 		<% } %>
 	</div>
 	<div style="clear: both"></div>

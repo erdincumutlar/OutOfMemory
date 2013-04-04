@@ -10,6 +10,16 @@
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
   
+  <error-page>  
+  	<error-code>404</error-code>
+  	<location>/WEB-INF/views/error/404.jsp</location>
+  </error-page> 
+  
+  <error-page>  
+  	<error-code>401</error-code>
+  	<location>/WEB-INF/views/error/401.jsp</location>
+  </error-page> 
+  
   <context-param>
     <param-name>authenticationContext</param-name>
     <param-value>/</param-value>
