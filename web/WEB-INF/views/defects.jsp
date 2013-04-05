@@ -33,7 +33,7 @@ if(tag != null && tag.length() > 0) {
 				</div>
 <%				for(BadClass badClass : sig.getClassList().values()) {
 						 String name = sig.getName() + "_" + badClass.getName();
-						// Display radio buttons for questions
+						// Digisplay radio buttons for questions
 						if(badClass.isQuestion()) { %>								
 							<label class="question" for="<%=name%>"><%=badClass.getQuestion()%></label>
 							<input type="radio" name="<%=name%>" id="<%=name%>" value="true"
