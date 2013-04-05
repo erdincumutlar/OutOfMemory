@@ -31,9 +31,7 @@ if(tag != null && tag.length() > 0) {
 				<div class="instructions"><%=sig.getBlurb()%>
 				<a href="javascript:popup('info.jsp?id=<%=sig.getName()%>', 'info')"><img id="info" src="images/info.png"/></a>
 				</div>
-<%				List<BadClass> classes = new ArrayList<BadClass>(sig.getClassList().values());
-				Collections.sort(classes);
-				for(BadClass badClass : classes) {
+<%				for(BadClass badClass : sig.getClassList().values()) {
 						 String name = sig.getName() + "_" + badClass.getName();
 						// Display radio buttons for questions
 						if(badClass.isQuestion()) { %>								

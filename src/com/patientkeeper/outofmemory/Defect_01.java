@@ -1,9 +1,8 @@
 package com.patientkeeper.outofmemory;
 
 import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
-import java.util.Map;
 
 import com.patientkeeper.tools.ToHTML;
 
@@ -29,14 +28,14 @@ public class Defect_01 extends Signature {
 		class_2.setNumber(400);
 		class_2.setContext("MB");
 		
-		Map<String, BadClass> classList = new HashMap<String, BadClass>();
+		LinkedHashMap<String, BadClass> classList = new LinkedHashMap<String, BadClass>();
 		classList.put(class_1.getName(), class_1);
 		classList.put(class_2.getName(), class_2);
 		
 		List<String> instructions = new ArrayList<String>(0);
 		instructions.add("Open the heap dump using Eclipse Memory Analyzer.");
 		instructions.add("Search for Crosstab in the class histogram.");
-		instructions.add("Right click the CrosstabColumnData and CrosstabColumnRow classes and select 'Calculate Precise Retained Size'.");
+		instructions.add("Right-click the CrosstabColumnData and CrosstabColumnRow classes, and select \"Calculate Precise Retained Size\".");
 		instructions.add("Enter the values into appropriate inputs fields.");
 		String ordered = ToHTML.getOrderedList(instructions);
 					
@@ -49,7 +48,8 @@ public class Defect_01 extends Signature {
 	}
 	
 	public boolean evaluate(AnalyzedHeap analyzedHeap) {		
-		if ((analyzedHeap.getNumber(this.getName() + "_" + COLUMNDATA) + analyzedHeap.getNumber(this.getName() + "_" + COLUMNROW)) >= classList.get(COLUMNDATA).getNumber()) {			
+		if (analyzedHeap.getNumber(this.getName() + "_" + COLUMNDATA) >= classList.get(COLUMNDATA).getNumber() || 
+			analyzedHeap.getNumber(this.getName() + "_" + COLUMNROW) >= classList.get(COLUMNROW).getNumber()) {			
 			return true;
 		}		
 		return false;

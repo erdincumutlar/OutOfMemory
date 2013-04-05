@@ -1,7 +1,6 @@
 package com.patientkeeper.outofmemory;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.LinkedHashMap;
 
 /*
  * cthonis
@@ -33,7 +32,7 @@ public class Defect_11 extends Signature {
 		class_4.setName(CDSCODE);
 		class_4.setQuestion("Does <span class=\"class\">" + CDSCODE + "</span> contain more than 100 thousand objects?");
 		
-		Map<String, BadClass> classList = new HashMap<String, BadClass>();
+		LinkedHashMap<String, BadClass> classList = new LinkedHashMap<String, BadClass>();
 		classList.put(class_1.getName(), class_1);
 		classList.put(class_2.getName(), class_2);	
 		classList.put(class_3.getName(), class_3);

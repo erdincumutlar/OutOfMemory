@@ -1,7 +1,6 @@
 package com.patientkeeper.outofmemory;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.LinkedHashMap;
 
 /*
  * DEV-15997
@@ -25,7 +24,7 @@ public class Defect_05 extends Signature {
 		class_2.setNumber(200);	
 		class_2.setContext("MB");
 		
-		Map<String, BadClass> classList = new HashMap<String, BadClass>();
+		LinkedHashMap<String, BadClass> classList = new LinkedHashMap<String, BadClass>();
 		classList.put(class_1.getName(), class_1);
 		classList.put(class_2.getName(), class_2);		
 				

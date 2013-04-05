@@ -1,17 +1,15 @@
 package com.patientkeeper.outofmemory;
 
-import java.util.Map;
+import java.util.LinkedHashMap;
 
 public abstract class Signature implements Comparable<Signature>{
 
 	private String name;
 	private String description;
 	private String blurb;
-	private String fixVersion;
-	
-	private String instructions;
-		
-	public Map<String, BadClass> classList;
+	private String fixVersion;	
+	private String instructions;		
+	public LinkedHashMap<String, BadClass> classList;
 	
 	public Signature() {
 		//
@@ -66,11 +64,11 @@ public abstract class Signature implements Comparable<Signature>{
 		}
 	}
 	
-	public void setClassList(Map<String, BadClass>  classList) {
+	public void setClassList(LinkedHashMap<String, BadClass>  classList) {
 		this.classList = classList;
 	}
 
-	public Map<String, BadClass> getClassList() {
+	public LinkedHashMap<String, BadClass> getClassList() {
 		return classList;
 	}
 	

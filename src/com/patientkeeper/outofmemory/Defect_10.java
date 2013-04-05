@@ -1,7 +1,6 @@
 package com.patientkeeper.outofmemory;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.LinkedHashMap;
 
 /*
  * cthonis
@@ -29,7 +28,7 @@ public class Defect_10 extends Signature {
 		class_3.setName(CHARGEDESKTOPRESULTLIST);
 		class_3.setQuestion("Do these threads contain references to <span class=\"class\">" + CHARGEDESKTOPRESULTLIST + "</span>?");
 				
-		Map<String, BadClass> classList = new HashMap<String, BadClass>();
+		LinkedHashMap<String, BadClass> classList = new LinkedHashMap<String, BadClass>();
 		classList.put(class_1.getName(), class_1);
 		classList.put(class_2.getName(), class_2);	
 		classList.put(class_3.getName(), class_3);		

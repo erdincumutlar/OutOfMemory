@@ -4,8 +4,7 @@
 
 package com.patientkeeper.outofmemory;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.LinkedHashMap;
 
 /*
  * DEV-39170
@@ -32,7 +31,7 @@ public class Defect_08 extends Signature {
 		class_3.setName(PROBLEMLIST);
 		class_3.setQuestion("Is <span class=\"class\">" + PROBLEMLIST + "</span> the first or second largest class within the largest thread?");
 		
-		Map<String, BadClass> classList = new HashMap<String, BadClass>();
+		LinkedHashMap<String, BadClass> classList = new LinkedHashMap<String, BadClass>();
 		classList.put(class_1.getName(), class_1);
 		classList.put(class_2.getName(), class_2);
 		classList.put(class_3.getName(), class_3);
