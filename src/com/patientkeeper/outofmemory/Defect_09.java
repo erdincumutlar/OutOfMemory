@@ -5,9 +5,8 @@
 package com.patientkeeper.outofmemory;
 
 import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
-import java.util.Map;
 import com.patientkeeper.tools.ToHTML;
 
 /*
@@ -44,41 +43,31 @@ public class Defect_09 extends Signature {
 		class_4.setNumber(1000);
 		class_4.setContext("Objects");
 
-		Map<String, BadClass> classList = new HashMap<String, BadClass>();
+		LinkedHashMap<String, BadClass> classList = new LinkedHashMap<String, BadClass>();
 		classList.put(class_1.getName(), class_1);
 		classList.put(class_2.getName(), class_2);
 		classList.put(class_3.getName(), class_3);
 		classList.put(class_4.getName(), class_4);
+		
+		List<String> instructions = new ArrayList<String>(0);
+		instructions.add("Search for <strong>Account</strong> in the class histogram.");
+		instructions.add("Rich click the Account class and select \"Calculate Precise Retained Size.\"");
+		instructions.add("Enter the retained heap size into the <em>Account</em> field.");
+		instructions.add("Search for and calculate the precise retained size of <strong>org.apache.catalina.loader.WebappClassLoader</strong> in the Dominator Tree.");
+		instructions.add("Enter the retained heap size into the <em>WebappClassLoader</em> field.");
+		instructions.add("Expand org.apache.catalina.loader.WebappClassLoader, then expand <strong>com.patientkeeper.syncengine.SyncEngineCache</strong>.");
+		instructions.add("Right-click on <strong>com.patientkeeper.syncengine.StandardMap</strong> and select Java Basics, open in Dominator Tree.");
+		instructions.add("In the pop-up window select Group By Class from the group drop-down");
+		instructions.add("Expand all classes; if Account or PKPersonnel exist, enter the object count in the respective <em>Account</em> and <em>PKPersonnel</em> fields. Otherwise, enter \"0\" in these fields.");
+		String ordered = ToHTML.getOrderedList(instructions);
 
 		setName("DEV-9752");
 		setDescription("Fill this in later.");
+		setInstructions(ordered);
 		setBlurb("Calculate the retained heap sizes of the classes below:");
 		setFixVersion("4.3.3");
 		setClassList(classList);
-
-		List<String> instructions = new ArrayList<String>(0);
-		instructions
-				.add("Search for <strong>Account</strong> in the class histogram.");
-		instructions
-				.add("Rich click the Account class and select \"Calculate Precise Retained Size.\"");
-		instructions
-				.add("Enter the retained heap size into the <em>Account</em> field.");
-		instructions
-				.add("Search for and calculate the precise retained size of <strong>org.apache.catalina.loader.WebappClassLoader</strong> in the Dominator Tree.");
-		instructions
-				.add("Enter the retained heap size into the <em>WebappClassLoader</em> field.");
-		instructions
-				.add("Expand org.apache.catalina.loader.WebappClassLoader, then expand <strong>com.patientkeeper.syncengine.SyncEngineCache</strong>.");
-		instructions
-				.add("Right-click on <strong>com.patientkeeper.syncengine.StandardMap</strong> and select Java Basics, open in Dominator Tree.");
-		instructions
-				.add("In the pop-up window select Group By Class from the group drop-down");
-		instructions
-				.add("Expand all classes; if Account or PKPersonnel exist, enter the object count in the respective <em>Account</em> and <em>PKPersonnel</em> fields. Otherwise, enter \"0\" in these fields.");
-
-		String ordered = ToHTML.getOrderedList(instructions);
-
-		setInstructions(ordered);
+	
 
 	}// end Defect
 
@@ -109,3 +98,4 @@ public class Defect_09 extends Signature {
 	}// end evaluate
 
 }// end class
+git
