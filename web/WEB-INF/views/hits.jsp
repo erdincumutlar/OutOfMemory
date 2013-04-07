@@ -14,13 +14,9 @@ if (analyzedHeap != null) {
 	String tag =  (String) request.getAttribute("tag");
 	String version =  (String) request.getAttribute("version");
 %>	
-	<div>
-	<div class="center">
-		<span id="tag"><b>Version:</b> <%=tag%> (<%=version%>)</span>
-	</div>
 	<fieldset id="hits" class="thin">
 	<legend>Results</legend>
-		<ul>
+	<ul>
 	<% 	if (!hits.isEmpty()) {
 			for (Signature hit : hits) { %>
 			<li><span class="black"><%=hit.getName()%></span></li>
@@ -29,7 +25,10 @@ if (analyzedHeap != null) {
 			<li><span class="black">Cause unknown, please enter a CI.</span></li>
 	<% } %>
 	</ul>
-	</fieldset>
+	<div class="center">
+		<span id="tag"><b>Version:</b> <%=tag%> (<%=version%>)</span>
 	</div>
+	</fieldset>
+	<br>
 <% } %>
  

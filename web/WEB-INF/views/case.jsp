@@ -11,19 +11,20 @@
 		String tag = (String) request.getAttribute("tag");
 		String version = (String) request.getAttribute("version"); 
 	%>			
-		<div>
+		<div id="case">
 		<form id="case" method="post" action="index.jsp" onSubmit="return validateCase()">
-			<fieldset class="case">
+			<fieldset>
 				<legend>Case Information</legend>
-				<div class="instructions">All fields required</div>
+				<div class="tip">All fields required</div>
 				<input type="hidden" name="caseForm" value="caseForm"/>
-				<label for="caseNumber">Case Number</label>&nbsp; 
+				<label class="case" for="caseNumber">Case Number</label>&nbsp; 
 				<input type="text" class="case" name="caseNumber" size="20" value="<%=WebUtil.out(caseNumber)%>" id="caseNumber" maxlength="7"/><br> 
-				<label for="tag">Mobilizer Tag</label>&nbsp;
+				<label class="case" for="tag">Mobilizer Tag</label>&nbsp;
 				<input type="text" class="case" name="tag" size="20" value="<%=WebUtil.out(tag)%>" id="tag"/><br><br>
 			</fieldset>
-			<div class="center">
+			<div class="submit">
 				<input type="submit" id="caseSubmit" value="Generate Signature List">
+				<span id="edit"><a href = "javascript:showCaseSubmit();">edit</a></span>
 			</div>
 			<div class="error">
 				<span class="error" id="caseError"></span>

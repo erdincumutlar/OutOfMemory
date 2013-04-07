@@ -1,5 +1,7 @@
 fieldset {
+	display: inline;
     position: relative;
+    margin-top: 15px;
     padding-top: 1em; 
     padding-left: 5px;  
 }
@@ -9,8 +11,18 @@ legend {
     top: -0.7em;
 }
 
+div#login{
+	margin-top: 5px;
+	width: 300px;
+}
+
+div.squish {	
+   display: inline-block;
+   *display: inline; /* leading asterisk IS correct */
+}
+
 div#header {	
 	border-bottom: 1px solid;
-	padding-bottom: 0px;
+	padding-bottom: 5px;
 }
 

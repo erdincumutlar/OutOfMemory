@@ -1,22 +1,25 @@
-package com.patientkeeper.outofmemory;
+package com.patientkeeper.outofmemory.defects;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 
-import com.patientkeeper.tools.ToHTML;
+import com.patientkeeper.outofmemory.AnalyzedHeap;
+import com.patientkeeper.outofmemory.BadClass;
+import com.patientkeeper.outofmemory.Signature;
+import com.patientkeeper.tools.WebUtil;
 
-/*
- * DEV-13285
+/**
+ * @author mchabot
  * https://jira/browse/DEV-13285
  */
 
-public class Defect_01 extends Signature {
+public class Dev_13285 extends Signature {
 
 	final String COLUMNDATA = "CrosstabColumnData";
 	final String COLUMNROW = "CrossColumnRow";	
 		
-	public Defect_01() {		
+	public Dev_13285() {		
 		
 		BadClass class_1 = new BadClass();		
 		class_1.setName(COLUMNDATA);
@@ -34,15 +37,14 @@ public class Defect_01 extends Signature {
 		
 		List<String> instructions = new ArrayList<String>(0);
 		instructions.add("Open the heap dump using Eclipse Memory Analyzer.");
-		instructions.add("Search for Crosstab in the class histogram.");
-		instructions.add("Right-click the CrosstabColumnData and CrosstabColumnRow classes, and select \"Calculate Precise Retained Size\".");
-		instructions.add("Enter the values into appropriate inputs fields.");
-		String ordered = ToHTML.getOrderedList(instructions);
+		instructions.add("Search for <b>Crosstab</b> in the class histogram.");
+		instructions.add("Right-click the <b>CrosstabColumnData</b> and <b>CrossColumnRow</b> classes, and select \"Calculate Precise Retained Size\".");
+		instructions.add("Enter the values into appropriate fields.");
+		String ordered = WebUtil.getOrderedList(instructions);
 					
 		setName("DEV-13285");
 		setDescription("Fill this in later.");
 		setInstructions(ordered);
-		setBlurb("Calculate the retained heap sizes of the classes below:");
 		setFixVersion("5.1.0");
 		setClassList(classList);				
 	}

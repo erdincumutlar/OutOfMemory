@@ -1,20 +1,24 @@
-package com.patientkeeper.outofmemory;
+package com.patientkeeper.outofmemory.defects;
 
 import java.util.LinkedHashMap;
 
-/*
- * cthonis
+import com.patientkeeper.outofmemory.AnalyzedHeap;
+import com.patientkeeper.outofmemory.BadClass;
+import com.patientkeeper.outofmemory.Signature;
+
+/**
+ * @author cthonis
  * https://jira/browse/DEV-13586
  */
 
-public class Defect_10 extends Signature {
+public class Dev_13586 extends Signature {
 
 	final String MULTI90 = "MultipleThreads90";
 	final String MULTI200 = "MultipleThreads200";
 	final String CHARGEDESKTOPRESULTLIST = "ChargeDesktopResultList";
 
 	
-	public Defect_10() {		
+	public Dev_13586() {		
 		
 		BadClass class_1 = new BadClass();		
 		class_1.setName(MULTI90);
@@ -35,7 +39,6 @@ public class Defect_10 extends Signature {
 		
 		setName("DEV-13586");
 		setDescription("Fill this in later.");
-		setBlurb("Navigate to Java Basics | Thread Overview to view thread details:");
 		setFixVersion("7.6.4");
 		setClassList(classList);				
 	}

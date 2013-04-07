@@ -1,23 +1,26 @@
-package com.patientkeeper.outofmemory;
+package com.patientkeeper.outofmemory.defects;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 
-import com.patientkeeper.tools.ToHTML;
+import com.patientkeeper.outofmemory.AnalyzedHeap;
+import com.patientkeeper.outofmemory.BadClass;
+import com.patientkeeper.outofmemory.Signature;
+import com.patientkeeper.tools.WebUtil;
 
-/*
- * DEV-22287
+/**
+ * @author mchabot
  * https://jira/browse/DEV-22287
  */
 
-public class Defect_04 extends Signature {
+public class Dev_22287 extends Signature {
 
 	final String SESSION = "net.sf.hibernate.impl.SessionImpl";
 	final String GETPATIENT = "com.patientkeeper.monaco.GetPatientInteractionList";
-	final String ENCOUNTER = "com.patientkeeper.monaco.cds.CdsEncounter";
+	final String ENCOUNTER = "CdsEncounter";
 
-	public Defect_04() {		
+	public Dev_22287() {		
 		
 		BadClass class_1 = new BadClass();		
 		class_1.setName(SESSION);
@@ -50,12 +53,11 @@ public class Defect_04 extends Signature {
 		instructions.add("Expand \"java.util.HashMap\", expand \"java.util.HashMap$Entry[]\", expand \"java.util.HashMap$Entry\".");
 		instructions.add("Find <b>com.patientkeeper.monaco.cds.CdsEncounter</b>, and note the number of objects.");
 		instructions.add("Enter the number of objects into the <i>CdsEncounter</i> input field.");
-		String ordered = ToHTML.getOrderedList(instructions);
+		String ordered = WebUtil.getOrderedList(instructions);
 		
 		setName("DEV-22287");
 		setDescription("Fill this in later.");
 		setInstructions(ordered);
-		setBlurb("Open the Dominator Tree and look for instances of net.sf.hibernate.impl.SessionImpl");
 		setFixVersion("7.6.4");
 		setClassList(classList);				
 	}

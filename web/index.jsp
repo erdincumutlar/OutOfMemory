@@ -25,22 +25,24 @@
 		String version = tag;
 		long versionNormalized = 0;
 		RE versionPattern = new RE("([0-9]+)_([0-9]+)_([0-9]+)");		
-		
-		// Parse "MOBILIZER_7_6_2_0_20130118_1157-RELEASE" to "7.6.2" and "762"	
+				
+		// Parse "MOBILIZER_7_6_2_0_20130118_1157-RELEASE" to "7.6.2"	
 		if(version != null && version.length() > 0 && versionPattern.match(version)) {
-			version = versionPattern.getParen(1) + "." + versionPattern.getParen(2) + "." + versionPattern.getParen(3);
-			versionNormalized = Long.parseLong(version.replace(".", ""));		
+			long major = Integer.parseInt(versionPattern.getParen(1));
+			long minor = Integer.parseInt(versionPattern.getParen(2));
+			long maint = Integer.parseInt(versionPattern.getParen(3));
+			versionNormalized = (major * 1000000) + (minor * 1000) + (maint);
+			version = major + "." + minor + "." + maint;
 		}
 				
 		// Find all classes that extend Signature (e.g. Defect_[#].java)
 		List<Signature> signatures = new ArrayList<Signature>();		
-		for(Signature each : Reflection.findSubTypesOf("com.patientkeeper.outofmemory", Signature.class)) {
+		for(Signature each : Reflection.findSubTypesOf("com.patientkeeper.outofmemory.defects", Signature.class)) {
 			signatures.add(each);							
 		}
 		
 		// Sort the signatures in ascending order, placing questions at the end
-		Collections.sort(signatures);
-		
+		Collections.sort(signatures);		
 		log.debug("Found " + signatures.size() + " signatures");
 		
 		// If the Case form was submitted...
@@ -48,10 +50,10 @@
 			String caseNumber = request.getParameter("caseNumber");			
 			request.setAttribute("tag", tag);
 			request.setAttribute("version", version);
+			request.setAttribute("versionNormalized", versionNormalized);
 			request.setAttribute("caseNumber", caseNumber);
 			request.setAttribute("signatures", signatures);
-			request.setAttribute("versionNormalized", versionNormalized);			
-			log.info(auth.getFullname() + ", " + "Case #" + caseNumber + ", " + tag + " (" + version + ", " + versionNormalized + ")");
+			log.info(auth.getFullname() + ", " + "Case #" + caseNumber + ", " + tag + " (" + version + ")");
 		}	
 		
 		// If the Defect form was submitted...
@@ -90,11 +92,10 @@
 			request.setAttribute("tag", tag);
 			request.setAttribute("hits", hits);			
 			request.setAttribute("version", version);
-			request.setAttribute("signatures", signatures);
-			request.setAttribute("analyzedHeap", analyzedHeap);
 			request.setAttribute("versionNormalized", versionNormalized);
+			request.setAttribute("signatures", signatures);
+			request.setAttribute("analyzedHeap", analyzedHeap);			
 			log.info("Finished...");	
-
 		}
 }	 
 %>

@@ -1,20 +1,24 @@
-package com.patientkeeper.outofmemory;
+package com.patientkeeper.outofmemory.defects;
 
 import java.util.LinkedHashMap;
 
-/*
- * cthonis
+import com.patientkeeper.outofmemory.AnalyzedHeap;
+import com.patientkeeper.outofmemory.BadClass;
+import com.patientkeeper.outofmemory.Signature;
+
+/**
+ * @author cthonis
  * https://jira/browse/DEV-31450
  */
 
-public class Defect_11 extends Signature {
+public class Dev_31450 extends Signature {
 
 	final String IMPL = "net.sf.hibernate.impl.SessionImpl";
 	final String VALCALLBACK = "Val$callback";
 	final String ORDERDEF = "GetOrderDefinitionList";
 	final String CDSCODE = "com.patientkeeper.comaco.cds.CdsCode";
 	
-	public Defect_11() {		
+	public Dev_31450() {		
 		
 		BadClass class_1 = new BadClass();		
 		class_1.setName(IMPL);
@@ -40,7 +44,6 @@ public class Defect_11 extends Signature {
 		
 		setName("DEV-31450");
 		setDescription("Fill this in later.");
-		setBlurb("Open the Dominator Tree and look for instances of net.sf.hibernate.impl.SessionImpl");
 		setFixVersion("7.x CPOE Triage");
 		setClassList(classList);				
 	}

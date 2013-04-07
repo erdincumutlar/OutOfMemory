@@ -1,18 +1,22 @@
-package com.patientkeeper.outofmemory;
+package com.patientkeeper.outofmemory.defects;
 
 import java.util.LinkedHashMap;
 
-/*
- * DEV-15997
+import com.patientkeeper.outofmemory.AnalyzedHeap;
+import com.patientkeeper.outofmemory.BadClass;
+import com.patientkeeper.outofmemory.Signature;
+
+/**
+ * @author mchabot
  * https://jira/browse/DEV-15997
  */
 
-public class Defect_05 extends Signature {
+public class Dev_15997 extends Signature {
 
 	final String COLUMNDATA = "CrossTabColumnData";
 	final String COLUMNROW = "CrossTabRowData";	
 		
-	public Defect_05() {		
+	public Dev_15997() {		
 		
 		BadClass class_1 = new BadClass();		
 		class_1.setName(COLUMNDATA);
@@ -30,7 +34,6 @@ public class Defect_05 extends Signature {
 				
 		setName("DEV-15997");
 		setDescription("Fill this in later.");
-		setBlurb("Calculate the retained heap sizes of the classes below:");
 		setFixVersion("7.x Triage");
 		setClassList(classList);				
 	}

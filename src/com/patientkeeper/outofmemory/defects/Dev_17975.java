@@ -1,22 +1,25 @@
-package com.patientkeeper.outofmemory;
+package com.patientkeeper.outofmemory.defects;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 
-import com.patientkeeper.tools.ToHTML;
+import com.patientkeeper.outofmemory.AnalyzedHeap;
+import com.patientkeeper.outofmemory.BadClass;
+import com.patientkeeper.outofmemory.Signature;
+import com.patientkeeper.tools.WebUtil;
 
-/*
- * DEV-17975
+/**
+ * @author mchabot 
  * https://jira/browse/DEV-17975
  */
 
-public class Defect_02 extends Signature {
+public class Dev_17975 extends Signature {
 
 	final String JASPER = "JasperPrint";
 	final String EXPORT = "JRXIsExporter";	
 	
-	public Defect_02() {		
+	public Dev_17975() {		
 
 		BadClass class_1 = new BadClass();		
 		class_1.setName(JASPER);
@@ -34,17 +37,17 @@ public class Defect_02 extends Signature {
 		
 		List<String> instructions = new ArrayList<String>(0);
 		instructions.add("Open the heap dump using Eclipse Memory Analyzer.");
-		instructions.add("Search for JasperPrint in the histogram.");
+		instructions.add("Search for <b>JasperPrint</b> in the class histogram.");
 		instructions.add("Right-click the value in the Shallow Heap Size column and select \"Calculate Precise Retained Size\".");
-		instructions.add("Search for JRXlsExporter in the histogram.");
+		instructions.add("Enter the retained heap size into the <i>JasperPrint</i> field.");
+		instructions.add("Search for <b>JRXIsExporter</b> in the class histogram.");
 		instructions.add("Right-click the value in the Shallow Heap Size column and select \"Calculate Precise Retained Size\".");
-		instructions.add("Enter the values into appropriate inputs fields.");
-		String ordered = ToHTML.getOrderedList(instructions);
+		instructions.add("Enter the retained heap size into the <i>JRXIsExporter</i> field.");
+		String ordered = WebUtil.getOrderedList(instructions);
 		
 		setName("DEV-17975");
 		setDescription("Fill this in later.");
 		setInstructions(ordered);
-		setBlurb("Calculate the retained heap sizes of the classes below:");
 		setFixVersion("5.1.0");
 		setClassList(classList);			
 	}

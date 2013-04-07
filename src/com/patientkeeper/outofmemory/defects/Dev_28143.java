@@ -1,18 +1,22 @@
-package com.patientkeeper.outofmemory;
+package com.patientkeeper.outofmemory.defects;
 
 import java.util.LinkedHashMap;
 
-/*
- * DEV-28143
+import com.patientkeeper.outofmemory.AnalyzedHeap;
+import com.patientkeeper.outofmemory.BadClass;
+import com.patientkeeper.outofmemory.Signature;
+
+/**
+ * @author mchabot
  * https://jira/browse/DEV-28143
  */
 
-public class Defect_06 extends Signature {
+public class Dev_28143 extends Signature {
 
 	final String TRANSACTION = "ChargeTransaction";
 	final String PATINTERACT = "PatientInteraction";	
 		
-	public Defect_06() {		
+	public Dev_28143() {		
 		
 		BadClass class_1 = new BadClass();		
 		class_1.setName(TRANSACTION);
@@ -30,7 +34,6 @@ public class Defect_06 extends Signature {
 				
 		setName("DEV-28143");
 		setDescription("Fill this in later.");
-		setBlurb("Calculate the retained heap sizes of the classes below:");
 		setFixVersion("7.x Triage");
 		setClassList(classList);				
 	}

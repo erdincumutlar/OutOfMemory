@@ -6,7 +6,6 @@ public abstract class Signature implements Comparable<Signature>{
 
 	private String name;
 	private String description;
-	private String blurb;
 	private String fixVersion;	
 	private String instructions;		
 	public LinkedHashMap<String, BadClass> classList;
@@ -39,12 +38,16 @@ public abstract class Signature implements Comparable<Signature>{
 		return fixVersion;
 	}
 	
-	public void setBlurb(String blurb) {
-		this.blurb = blurb;
-	}
-	
-	public String getBlurb() {
-		return blurb;
+	public Long getFixVersionNormalized() {
+		long temp;
+		try {
+			String[] version = fixVersion.split("\\.");	
+			temp = (Long.parseLong(version[0]) * 1000000) + (Long.parseLong(version[1]) * 1000) + (Long.parseLong(version[2]));
+		}
+		catch (NumberFormatException nfe) {
+			return 1000000000L;
+		}
+		return temp;
 	}
 	
 	public String getInstructions() {
@@ -53,17 +56,8 @@ public abstract class Signature implements Comparable<Signature>{
 
 	public void setInstructions(String instructions) {
 		this.instructions = instructions;
-	}
-	
-	public long getFixVersionNormalized() {
-		try {
-			return Long.parseLong(fixVersion.replace(".", ""));
-		}
-		catch (NumberFormatException nfe) {
-			return 1000000;
-		}
-	}
-	
+	}	
+
 	public void setClassList(LinkedHashMap<String, BadClass>  classList) {
 		this.classList = classList;
 	}

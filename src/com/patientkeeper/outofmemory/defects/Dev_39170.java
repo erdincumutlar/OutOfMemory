@@ -1,26 +1,26 @@
-/*
- * @author tkain 
- */
-
-package com.patientkeeper.outofmemory;
+package com.patientkeeper.outofmemory.defects;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
-import com.patientkeeper.tools.ToHTML;
 
-/*
- * DEV-39170
+import com.patientkeeper.outofmemory.AnalyzedHeap;
+import com.patientkeeper.outofmemory.BadClass;
+import com.patientkeeper.outofmemory.Signature;
+import com.patientkeeper.tools.WebUtil;
+
+/**
+ * @author tkain
  * https://jira/browse/DEV-39170
  */
 
-public class Defect_08 extends Signature {
+public class Dev_39170 extends Signature {
 	
 	final String HHSUBMISSION = "java.lang.Thread @[address] Sync08:[user_nm]:2:[sessionlog_id]:Submission[PATIENTID-[pat_id]]";
 	final String THREADWITHATTRIBUTES = "org.apache.tomcat.util.threads.ThreadWithAttributes @[address] http-0.0.0.0-31140-Processor6";
 	final String PROBLEMLIST = "ProblemList";
 	
-	public Defect_08() {
+	public Dev_39170() {
 		
 		BadClass class_1 = new BadClass();
 		class_1.setName(HHSUBMISSION);
@@ -40,27 +40,27 @@ public class Defect_08 extends Signature {
 		classList.put(class_3.getName(), class_3);
 		
 		List<String> instructions = new ArrayList<String>(0);
-		instructions.add("Open the dominator tree and sort by percent descending.");
-		instructions.add("Determine if either of the below class syntaxes are the largest class and update the <em>largest threads</em> questions");
-		instructions.add("A HH thread like <strong>) java.lang.Thread @<address> Sync08:<user_nm>:2:<sessionlog_id>:Submission[PATIENTID-<pat_id>]</strong>");
-		instructions.add("A web thread (or ThreadWithAttributes) like <strong>org.apache.tomcat.util.threads.ThreadWithAttributes @<address> http-0.0.0.0-31140-Processor6</strong>");
+		instructions.add("Open the heap dump using Eclipse Memory Analyzer.");
+		instructions.add("Open the Dominator Tree and sort by percent descending.");
+		instructions.add("Determine if either of the below class syntaxes are the largest class and update the <em>largest threads</em> questions.");
+		instructions.add("A HH thread like <strong>) java.lang.Thread @<address> Sync08:<user_nm>:2:<sessionlog_id>:Submission[PATIENTID-<pat_id>]</strong>.");
+		instructions.add("A web thread (or ThreadWithAttributes) like <strong>org.apache.tomcat.util.threads.ThreadWithAttributes @<address> http-0.0.0.0-31140-Processor6</strong>.");
 		instructions.add("Expand this thread, determine if <strong>com.patientkeeper.datamodel.ProblemList</strong> is the first or second largest class, and update the <em>ProblemList</em> question accordingly.");
-		String ordered = ToHTML.getOrderedList(instructions);
+		String ordered = WebUtil.getOrderedList(instructions);
 		
 		setName("DEV-39170");
 		setDescription("Fill this in later.");
 		setInstructions(ordered);
-		setBlurb("Review the Dominator Tree to identify the items below:");
 		setFixVersion("7.6.6");
-		setClassList(classList);
-		
-	}//end Defect
+		setClassList(classList);		
+	}
 	
 	public boolean evalute(AnalyzedHeap analyzedHeap) {
-		if (analyzedHeap.getBoolean(this.getName() + "_" + HHSUBMISSION) || (analyzedHeap.getBoolean(this.getName() + "_" + THREADWITHATTRIBUTES))) {
-			return (analyzedHeap.getBoolean(this.getName() + "_" + PROBLEMLIST));
-		}//end if
+		if ((analyzedHeap.getBoolean(this.getName() + "_" + HHSUBMISSION) || 
+			(analyzedHeap.getBoolean(this.getName() + "_" + THREADWITHATTRIBUTES))) && 
+			analyzedHeap.getBoolean(this.getName() + "_" + PROBLEMLIST)) {
+			return true;
+		}
 		return false;
-	}//end evaluate
-	
-}//end class
+	}	
+}

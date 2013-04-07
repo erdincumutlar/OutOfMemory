@@ -3,17 +3,12 @@ body {
 	font-size: 12px;
 }
 
-img#info {
+img#icon {
 	height:16px;
 	width:16px;
 	border: 0px;
 	vertical-align: bottom;
 }	
-
-span.title {
-	font-family: 'Press Start 2P';
-	font-size: 32px;
-}
 
 span.black {
 	color: black;
@@ -26,7 +21,6 @@ span.left {
 span.error {
 	color: red;
 	font-style:italic;
-	display: inline-block;
 }
 
 span.class {
@@ -34,12 +28,16 @@ span.class {
 	font-style:italic;
 }
 
+span#edit {
+	display: none;
+}
+
 span#tag {
 	font-style:italic;
 }
 
-div#login fieldset{
-	width: 320px;
+div#login{
+	width: 300px;
 }
 
 div#header {	
@@ -59,36 +57,34 @@ div#title {
 	font-size: 32px;
 }
 
-div#blurb {	
-	margin-top: 15px;
-	margin-bottom: 15px;
+div#intro {	
+	margin-top: 10px;
+	margin-bottom: 5px;
 	padding-left:5px;
 }
 
-div#leftPane {	
-	padding-left:15px;
-	width: 350px;	
+div#case {
+	width:300px;
 }
 
-div#submit {
-	margin-top: 5px;
-	margin-bottom: 5px;
+div.squish {
+	display:inline-block;
 }
 
-div#dev {
-	border-bottom:1px solid;
-}
-
-div.instructions {	
-	width: 100%;
-	margin-bottom: 5px;
+div.tip{
 	font-style:italic;
 	font-size:11px;
 	color: #404040;
+	margin-bottom: 5px;
+}
+
+div.submit {
+	text-align: center;
+	margin-top:5px;
 }
 
 div.center {
-	text-align:center;
+	text-align: center;
 }
 
 div.right {
@@ -96,55 +92,17 @@ div.right {
 }
 
 fieldset {
-	margin-top: 5px;
-	margin-bottom: 5px;
+	display: inline;
+	margin-top: 10px;
+	padding: 2px 10px 5px;
 	background-color: #F0F0F0;
 	border: 1px solid #888888;
-}
-
-legend {
-	text-align: left;
-	font-weight: bold;
-}
-
-fieldset label, fieldset input {
-	margin-top: 2.5px;
-	margin-bottom: 5px;
-}
-
-fieldset input {
-	text-align: right;
-	display: inline-block;
-}
-
-fieldset label.class {
-	display: inline-block;
-	width: 210px;
-	text-align:right;		
-}
-
-fieldset.wide label.question{
-	display: inline-block;
-	width: 620px;	
-}
-
-fieldset.case {
-	padding-bottom:2px;
-}
-
-fieldset.case label {
-	display: inline-block;
-	width: 140px;
-	text-align:right;
-}
-
-fieldset.case input {
-	text-align:left;		
 }
 
 fieldset#hits {	
 	border: 1px solid red;
 	margin-bottom: 10px;
+	width:275px;
 }
 
 fieldset#hits legend {	
@@ -156,4 +114,47 @@ fieldset#hits ul{
 	margin-bottom:5px;
 	list-style-type:square;
 	color: red;
+}
+
+legend {
+	text-align: left;
+	font-weight: bold;
+}
+
+label.case {
+	display: inline-block;
+	text-align: right;
+	width: 100px;
+	margin-right: 5px;
+	margin-bottom: 5px;
+}
+
+input#caseSubmit {
+	display: none;
+}
+
+input.case {
+	display: inline-block;
+	margin-bottom: 5px;
+}
+
+input.radio {
+	margin-bottom: 5px;
+	margin-bottom: 10px;
+}
+
+label.inblock {
+	display: inline-block;
+	text-align: right;
+	margin-right: 5px;
+	margin-bottom: 5px;
+}
+
+input.inblock {
+	display: inline-block;
+	margin-bottom: 5px;
+}
+
+label.question{
+	display:inline-block;
 }

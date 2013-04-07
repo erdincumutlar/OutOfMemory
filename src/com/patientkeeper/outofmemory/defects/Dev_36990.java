@@ -1,25 +1,25 @@
-/*
- * @author tkain 
- */
-
-package com.patientkeeper.outofmemory;
+package com.patientkeeper.outofmemory.defects;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
-import com.patientkeeper.tools.ToHTML;
 
-/*
- * DEV-36990
+import com.patientkeeper.outofmemory.AnalyzedHeap;
+import com.patientkeeper.outofmemory.BadClass;
+import com.patientkeeper.outofmemory.Signature;
+import com.patientkeeper.tools.WebUtil;
+
+/**
+ * @author tkain
  * https://jira/browse/DEV-36990
  */
 
-public class Defect_07 extends Signature {
+public class Dev_36990 extends Signature {
 
 	final String CDSENCOUNTER = "CdsEncounter";
 	final String CACHEPOPULATOR = "ProviderCachePopulatorTask.run()";
 
-	public Defect_07() {
+	public Dev_36990() {
 
 		BadClass class_1 = new BadClass();
 		class_1.setName(CDSENCOUNTER);
@@ -37,28 +37,26 @@ public class Defect_07 extends Signature {
 		classList.put(class_2.getName(), class_2);
 
 		List<String> instructions = new ArrayList<String>(0);
-		instructions.add("In the Histogram, search for <strong>CdsEncounter</strong>.");
+		instructions.add("Open the heap dump using Eclipse Memory Analyzer.");
+		instructions.add("Search for <strong>CdsEncounter</strong> in the class histogram.");
 		instructions.add("Enter the object count into the <em>CdsEncounter Objects</em> field.");
 		instructions.add("Right click on the CdsEncounter class and select \"Merge Shortest Path to GC roots with all references.\"");
-		instructions.add("Identify a thread root named with this syntax: pool-NN-thread-Y (ex. pool-27-thread-2). Right-click on it and select Java Basics -> Thread Details.");
-		instructions.add("Determine if com.patientkeeper.recurringtask.providerpopulator.ProviderCachePopulatorTask.run() exists in the Thread details.");
+		instructions.add("Identify a thread root named with this syntax: <strong>pool-NN-thread-Y</strong> (e.g. pool-27-thread-2). Right-click on it and select Java Basics | Thread Details.");
+		instructions.add("Determine if <strong>com.patientkeeper.recurringtask.providerpopulator.ProviderCachePopulatorTask.run()</strong> exists in the Thread details.");
 		instructions.add("Update the <em>ProviderCachePopulatorTask.run()</em> field appropriately.");
-		String ordered = ToHTML.getOrderedList(instructions);
+		String ordered = WebUtil.getOrderedList(instructions);
 		
 		setName("DEV-36990");
 		setDescription("Fill this in later.");
 		setInstructions(ordered);
 		setFixVersion("Dev To Manage");
-		setBlurb("Identify the number of objects in the class below, and review thread details via Java Basics | Thread Details:");
-		setClassList(classList);
-		
+		setClassList(classList);		
 	}
 
 	public boolean evaluate(AnalyzedHeap analyzedHeap) {
-		if (analyzedHeap.getNumber(this.getName() + "_" + CDSENCOUNTER) >= classList
-				.get(CDSENCOUNTER).getNumber()) {
-			return (analyzedHeap.getBoolean(this.getName() + "_"
-					+ CACHEPOPULATOR));
+		if (analyzedHeap.getNumber(this.getName() + "_" + CDSENCOUNTER) >= classList.get(CDSENCOUNTER).getNumber() && 
+			analyzedHeap.getBoolean(this.getName() + "_" + CACHEPOPULATOR)) {
+			return true;
 		}
 		return false;
 	}

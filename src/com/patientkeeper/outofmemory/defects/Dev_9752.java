@@ -1,27 +1,27 @@
-/*
- * @author tkain
- */
-
-package com.patientkeeper.outofmemory;
+package com.patientkeeper.outofmemory.defects;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
-import com.patientkeeper.tools.ToHTML;
 
-/*
- * DEV-9752
+import com.patientkeeper.outofmemory.AnalyzedHeap;
+import com.patientkeeper.outofmemory.BadClass;
+import com.patientkeeper.outofmemory.Signature;
+import com.patientkeeper.tools.WebUtil;
+
+/**
+ * @author tkain
  * https://jira/browse/DEV-9752
  */
 
-public class Defect_09 extends Signature {
+public class Dev_9752 extends Signature {
 
 	final String ACCOUNT = "Account";
 	final String CLASSLOADER = "WebappClassLoader";
 	final String MAPACCOUNT = "StandardMap.Account";
 	final String MAPPKPERSONNEL = "PKPersonnel";
 
-	public Defect_09() {
+	public Dev_9752() {
 
 		BadClass class_1 = new BadClass();
 		class_1.setName(ACCOUNT);
@@ -50,6 +50,7 @@ public class Defect_09 extends Signature {
 		classList.put(class_4.getName(), class_4);
 		
 		List<String> instructions = new ArrayList<String>(0);
+		instructions.add("Open the heap dump using Eclipse Memory Analyzer.");
 		instructions.add("Search for <strong>Account</strong> in the class histogram.");
 		instructions.add("Rich click the Account class and select \"Calculate Precise Retained Size.\"");
 		instructions.add("Enter the retained heap size into the <em>Account</em> field.");
@@ -57,19 +58,16 @@ public class Defect_09 extends Signature {
 		instructions.add("Enter the retained heap size into the <em>WebappClassLoader</em> field.");
 		instructions.add("Expand org.apache.catalina.loader.WebappClassLoader, then expand <strong>com.patientkeeper.syncengine.SyncEngineCache</strong>.");
 		instructions.add("Right-click on <strong>com.patientkeeper.syncengine.StandardMap</strong> and select Java Basics, open in Dominator Tree.");
-		instructions.add("In the pop-up window select Group By Class from the group drop-down");
+		instructions.add("In the pop-up window select Group By Class from the group drop-down.");
 		instructions.add("Expand all classes; if Account or PKPersonnel exist, enter the object count in the respective <em>Account</em> and <em>PKPersonnel</em> fields. Otherwise, enter \"0\" in these fields.");
-		String ordered = ToHTML.getOrderedList(instructions);
+		String ordered = WebUtil.getOrderedList(instructions);
 
 		setName("DEV-9752");
 		setDescription("Fill this in later.");
 		setInstructions(ordered);
-		setBlurb("Calculate the retained heap sizes of the classes below:");
 		setFixVersion("4.3.3");
 		setClassList(classList);
-	
-
-	}// end Defect
+	}
 
 	/*
 	 * Unable to locate any prior heaps to reference, so I'm interpreting the
@@ -80,22 +78,14 @@ public class Defect_09 extends Signature {
 	 */
 
 	public boolean evaluate(AnalyzedHeap analyzedHeap) {
-		Boolean evaluateVariable = false;
-		if (analyzedHeap.getNumber(this.getName() + "_" + ACCOUNT) >= classList
-				.get(ACCOUNT).getNumber()) {
-			evaluateVariable = true;
-		} else if (analyzedHeap.getNumber(this.getName() + "_" + CLASSLOADER) >= classList
-				.get(CLASSLOADER).getNumber()) {
-			if (analyzedHeap.getNumber(this.getName() + "_" + MAPACCOUNT) >= classList
-					.get(MAPACCOUNT).getNumber()
-					|| analyzedHeap.getNumber(this.getName() + "_"
-							+ MAPPKPERSONNEL) >= classList.get(MAPPKPERSONNEL)
-							.getNumber()) {
-				evaluateVariable = true;
+		if (analyzedHeap.getNumber(this.getName() + "_" + ACCOUNT) >= classList.get(ACCOUNT).getNumber()) {
+			return true;
+		} else if (analyzedHeap.getNumber(this.getName() + "_" + CLASSLOADER) >= classList.get(CLASSLOADER).getNumber()) {
+			if (analyzedHeap.getNumber(this.getName() + "_" + MAPACCOUNT) >= classList.get(MAPACCOUNT).getNumber() || 
+				analyzedHeap.getNumber(this.getName() + "_" + MAPPKPERSONNEL) >= classList.get(MAPPKPERSONNEL).getNumber()) {
+				return true;
 			}
 		}
-		return evaluateVariable;
-	}// end evaluate
-
-}// end class
-git
+		return false;
+	}
+}

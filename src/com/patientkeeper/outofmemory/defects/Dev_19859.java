@@ -1,22 +1,25 @@
-package com.patientkeeper.outofmemory;
+package com.patientkeeper.outofmemory.defects;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 
-import com.patientkeeper.tools.ToHTML;
+import com.patientkeeper.outofmemory.AnalyzedHeap;
+import com.patientkeeper.outofmemory.BadClass;
+import com.patientkeeper.outofmemory.Signature;
+import com.patientkeeper.tools.WebUtil;
 
-/*
- * DEV-19859
+/**
+ * @author cthonis
  * https://jira/browse/DEV-19859
  */
 
-public class Defect_03 extends Signature {
+public class Dev_19859 extends Signature {
 
 	final String ACCT = "Account";
 	final String ACCT_CONF = "GetAccountListForConfidentiality";	
 	
-	public Defect_03() {	
+	public Dev_19859() {	
 		
 		BadClass class_1 = new BadClass();		
 		class_1.setName(ACCT);
@@ -34,17 +37,17 @@ public class Defect_03 extends Signature {
 		
 		List<String> instructions = new ArrayList<String>(0);
 		instructions.add("Open the heap dump using Eclipse Memory Analyzer.");
-		instructions.add("Search for Account in the class histogram.");
-		instructions.add("Right-click the Account class and select \"Calculate Precise Retained Size\"");
-		instructions.add("Search for GetAccountListForConfidentiality in the class histogram.");
+		instructions.add("Search for <b>Account</b> in the class histogram.");
+		instructions.add("Right-click the Account class and select \"Calculate Precise Retained Size\".");
+		instructions.add("Enter the retained heap size into the <i>Account</i> field.");
+		instructions.add("Search for <b>GetAccountListForConfidentiality</b> in the class histogram.");
 		instructions.add("Right-click the GetAccountListForConfidentiality class and select \"Calculate Precise Retained Size\".");
-		instructions.add("Enter the values into appropriate inputs fields.");
-		String ordered = ToHTML.getOrderedList(instructions);		
+		instructions.add("Enter the retained heap size into the <i>GetAccountListForConfidentiality</i> field.");
+		String ordered = WebUtil.getOrderedList(instructions);		
 		
 		setName("DEV-19859");
 		setDescription("Fill this in later.");
 		setInstructions(ordered);
-		setBlurb("Calculate the retained heap sizes of the classes below:");
 		setFixVersion("5.0.0");
 		setClassList(classList);				
 	}
