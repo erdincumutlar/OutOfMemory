@@ -69,10 +69,10 @@
 			for(Signature sig : signatures) {
 				// Retrieve input parameters for each class
 				for(BadClass badClass : sig.getClassList().values()) {
-				String name = sig.getName() + "_" + badClass.getName();
-				String input = request.getParameter(name);
+					String name = sig.getName() + "_" + badClass.getName();
+					String input = request.getParameter(name);
 					if(input != null && input.trim().length() > 0) {
-						analyzedHeapMap.put(name, input.trim());	
+						analyzedHeapMap.put(name, input.trim());
 					}
 					else {
 						// Assume null fields are 0 MB. Should only apply when Javascript has been disabled.

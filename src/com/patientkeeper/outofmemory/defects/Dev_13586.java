@@ -63,7 +63,7 @@ public class Dev_13586 extends Signature {
 	public boolean evaluate(AnalyzedHeap analyzedHeap) {		
 			if(analyzedHeap.getBoolean(this.getName() + "_" + MULTI90) || (
 			   analyzedHeap.getBoolean(this.getName() + "_" + MULTI200) || 
-			   analyzedHeap.getBoolean(this.getName() + "_" + CDRL))) {
+			   analyzedHeap.getBoolean(this.getName() + "_" + CDRLCHARGE))) {
 				return true;				
 			}
 		return false;

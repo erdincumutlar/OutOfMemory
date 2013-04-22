@@ -55,10 +55,10 @@ public class Dev_39170 extends Signature {
 		setClassList(classList);		
 	}
 	
-	public boolean evalute(AnalyzedHeap analyzedHeap) {
-		if ((analyzedHeap.getBoolean(this.getName() + "_" + HHSUBMISSION) || 
-			(analyzedHeap.getBoolean(this.getName() + "_" + THREADWITHATTRIBUTES))) && 
-			analyzedHeap.getBoolean(this.getName() + "_" + PROBLEMLIST)) {
+	public boolean evaluate(AnalyzedHeap analyzedHeap) {
+		if (analyzedHeap.getBoolean(this.getName() + "_" + HHSUBMISSION) || 
+			(analyzedHeap.getBoolean(this.getName() + "_" + THREADWITHATTRIBUTES) && 
+			analyzedHeap.getBoolean(this.getName() + "_" + PROBLEMLIST))) {
 			return true;
 		}
 		return false;

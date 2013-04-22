@@ -2,11 +2,13 @@
 /*global $, jQuery*/
 /*global window */
 $(document).ready(function () {
-    "use strict";
-    $("input.inblock").change(function () {
-        var defect = $(this).prop('id').substring(0, $(this).prop('id').indexOf('_'));
-        $('span#' + defect).hide(300);
-    });
+  "use strict";
+  $("input.inblock").change(function () {
+      var defect = $(this).prop('id').substring(0, $(this).prop('id').indexOf('_'));
+      if ($('span#' + defect).text() !== "") {
+    	  $('span#' + defect).hide(300);  
+      }
+  });
     $("input.case").change(function () {
         $('span#caseError').hide(300);
     });
