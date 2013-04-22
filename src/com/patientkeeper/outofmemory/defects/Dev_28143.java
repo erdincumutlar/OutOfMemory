@@ -1,10 +1,13 @@
 package com.patientkeeper.outofmemory.defects;
 
+import java.util.ArrayList;
 import java.util.LinkedHashMap;
+import java.util.List;
 
 import com.patientkeeper.outofmemory.AnalyzedHeap;
 import com.patientkeeper.outofmemory.BadClass;
 import com.patientkeeper.outofmemory.Signature;
+import com.patientkeeper.tools.WebUtil;
 
 /**
  * @author mchabot
@@ -31,8 +34,20 @@ public class Dev_28143 extends Signature {
 		LinkedHashMap<String, BadClass> classList = new LinkedHashMap<String, BadClass>();
 		classList.put(class_1.getName(), class_1);
 		classList.put(class_2.getName(), class_2);		
-				
+		
+		List<String> instructions = new ArrayList<String>(0);
+		
+		instructions.add("Open the heap dump using Eclipse Memory Analyzer.");
+		instructions.add("Search for <b>ChargeTransaction</b> in the class histogram.");
+		instructions.add("Right click the ChargeTransaction class and select \"Calculate Precise Retained Size\".");
+		instructions.add("Enter the retained heap size into the <i>ChargeTransaction</i> field.");
+		instructions.add("Search for <b>PatientInteraction</b> in the class histogram.");
+		instructions.add("Right click the PatientInteraction class and select \"Calculate Precise Retained Size\".");
+		instructions.add("Enter the retained heap size into the <i>PatientInteraction</i> field.");
+		String ordered = WebUtil.getOrderedList(instructions);
+		
 		setName("DEV-28143");
+		setInstructions(ordered);
 		setDescription("Fill this in later.");
 		setFixVersion("7.x Triage");
 		setClassList(classList);				
