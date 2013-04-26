@@ -43,7 +43,7 @@ public class Dev_39170 extends Signature {
 		instructions.add("Open the heap dump using Eclipse Memory Analyzer.");
 		instructions.add("Open the Dominator Tree and sort by percent descending.");
 		instructions.add("Determine if either of the below class syntaxes are the largest class and update the <em>largest threads</em> questions.");
-		instructions.add("A HH thread like <strong>) java.lang.Thread @<address> Sync08:<user_nm>:2:<sessionlog_id>:Submission[PATIENTID-<pat_id>]</strong>.");
+		instructions.add("A HH thread like <strong> java.lang.Thread @<address> Sync08:<user_nm>:2:<sessionlog_id>:Submission[PATIENTID-<pat_id>]</strong>.");
 		instructions.add("A web thread (or ThreadWithAttributes) like <strong>org.apache.tomcat.util.threads.ThreadWithAttributes @<address> http-0.0.0.0-31140-Processor6</strong>.");
 		instructions.add("Expand this thread, determine if <strong>com.patientkeeper.datamodel.ProblemList</strong> is the first or second largest class, and update the <em>ProblemList</em> question accordingly.");
 		String ordered = WebUtil.getOrderedList(instructions);
