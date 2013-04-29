@@ -39,7 +39,7 @@ public class Dev_36991 extends Signature {
 		instructions.add("Open the Dominator Tree and sort by percent descending.");
 		instructions.add("Determine if <strong> Pool-27-Thread-1 </strong> (also seen as <strong>Pool-27-Thread01) is at the top and using at least 30% of the heap; update the <em>Pool-27</em> question accordingly.");
 		instructions.add("Right-click on the thread and select Java Basics -> Thread Details");
-		instructions.add("Determine if the <strong>preloadcache()v</strong> and <strong>run()V</strong> methods are in the detailed thread stack; update the <em>preloadcache()V)</em> question accordingly.");
+		instructions.add("Determine if the <strong>preloadcache()V</strong> and <strong>run()V</strong> methods are in the detailed thread stack; update the <em>preloadcache()V)</em> question accordingly.");
 		String ordered = WebUtil.getOrderedList(instructions);
 		
 		setName("DEV-36991");
