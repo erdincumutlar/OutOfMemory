@@ -44,9 +44,9 @@ public class Dev_37951 extends Signature {
 		instructions.add("Open the heap dump using Eclipse Memory Analyzer.");
 		instructions.add("Open the Dominator Tree and sort by percent descending.");
 		instructions.add("Determine if <strong> TaskThread </strong> is at the top and retains at least 100MB of the heap; update the <em>TaskThread</em> question accordingly.");
-		instructions.add("Expand the TaskThread and determine if either <strong> PKNote </strong> or <strong> CdsFormResult </strong> classes exist and update the <em>PKNote</em> question accordingly."); 
+		instructions.add("Expand the TaskThread and determine if either <strong> PKNote </strong> or <strong> CdsFormResult </strong> classes exist; update the <em>PKNote</em> question accordingly."); 
 		instructions.add("Expand the Object class directly under ArrayList.");
-		instructions.add("Determine if <strong> PKNote </strong> exists within ArrayList and update the <em>PKNote (within ArrayList)</em> question accordingly.");
+		instructions.add("Determine if <strong> PKNote </strong> exists within ArrayList; update the <em>PKNote (within ArrayList)</em> question accordingly.");
 		String ordered = WebUtil.getOrderedList(instructions);
 		
 		setName ("Dev-37951");
