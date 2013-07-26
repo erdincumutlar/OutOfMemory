@@ -12,16 +12,18 @@ import com.patientkeeper.tools.WebUtil;
 /**
  * @author cthonis
  * https://jira/browse/DEV-31450
+ * 
+ * 130726 Updated per Jon Piro to DEV-11749 for 4.x only - tkain
  */
 
-public class Dev_31450 extends Signature {
+public class Dev_11749 extends Signature {
 
 	final String IMPL = "net.sf.hibernate.impl.SessionImpl";
 	final String VALCALLBACK = "Val$callback";
 	final String ORDERDEF = "GetOrderDefinitionList";
 	final String CDSCODE = "com.patientkeeper.comaco.cds.CdsCode";
 	
-	public Dev_31450() {		
+	public Dev_11749() {		
 		
 		BadClass class_1 = new BadClass();		
 		class_1.setName(IMPL);
@@ -61,10 +63,10 @@ public class Dev_31450 extends Signature {
 		instructions.add("Repeat steps 3-11 if more than 1 SessionImpl greater than 100MB");
 		String ordered = WebUtil.getOrderedList(instructions);
 		
-		setName("DEV-31450");
+		setName("DEV-11749");
 		setInstructions(ordered);
 		setDescription("Fill this in later.");
-		setFixVersion("7.x CPOE Triage");
+		setFixVersion("4.6.6.0");
 		setClassList(classList);				
 	}
 	
